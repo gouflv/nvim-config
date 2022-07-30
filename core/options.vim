@@ -4,6 +4,8 @@ let g:mapleader=' '
 " Editor
 """
 
+set encoding=utf-8
+
 " General tab settings
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
@@ -33,9 +35,12 @@ set cursorline
 
 set nohlsearch
 
+set foldlevelstart=1
+
 " Fold by treesitter
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+
 
 """
 " Interface
@@ -68,7 +73,7 @@ endif
 set noswapfile
 
 " Minimum lines to keep above and below cursor when scrolling
-set mouse=nic
+set mouse=
 
 " Persistent undo even after you close a file and re-open it
 set undofile

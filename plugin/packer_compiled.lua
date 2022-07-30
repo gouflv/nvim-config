@@ -194,11 +194,6 @@ _G.packer_plugins = {
     path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
   },
-  ["which-key.nvim"] = {
-    loaded = true,
-    path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/which-key.nvim",
-    url = "https://github.com/folke/which-key.nvim"
-  },
   ["wilder.nvim"] = {
     loaded = true,
     path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/wilder.nvim",

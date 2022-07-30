@@ -3,7 +3,7 @@
 -- Load packer.nvim
 vim.cmd('packadd packer.nvim')
 
-local function initUIs(use)
+local function useUIs(use)
     -- NvimTree
     use {
         'kyazdani42/nvim-tree.lua',
@@ -36,9 +36,12 @@ local function initUIs(use)
         'akinsho/toggleterm.nvim',
         tag = 'v2.*'
     }
+
+    -- Wilder
+    use 'gelguy/wilder.nvim'
 end
 
-local function initLanguages(use)
+local function useLS(use)
     -- Treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -70,38 +73,43 @@ local function initLanguages(use)
 
 end
 
+local function useEdit(use)
+    use 'kylechui/nvim-surround'
+    use 'windwp/nvim-autopairs'
+    use 'numToStr/Comment.nvim'
+    use 'Pocco81/AutoSave.nvim'
+
+end
+
 require('packer').startup({ function(use)
     use 'wbthomason/packer.nvim'
 
-    initUIs(use)
+    useUIs(use)
+    useLS(use)
+    useEdit(use)
 
-    initLanguages(use)
-
-
-    use 'windwp/nvim-autopairs'
-    use 'Pocco81/AutoSave.nvim'
     use 'morhetz/gruvbox'
 end,
     config = {
         display = {
             open_fn = require('packer.util').float,
-        }
+        },
+        max_jobs = 8,
     }
 })
 
--- Plugins
--- UI
+-- Configs
 require('config.nvim-tree')
 require('config.bufferline')
 require('config.telescope')
 require('config.lualine')
 require('config.term')
---require('config.which-key')
+require('config.wilder')
 
--- Edit
+require('config.treesitter')
+require('lsp.lsp-init')
+
+require('config.surround')
 require('config.autopairs')
 require('config.autosave')
 
--- LSP
-require('config.treesitter')
-require('lsp.lsp-init')
