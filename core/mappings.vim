@@ -22,14 +22,14 @@ inoremap jk <Esc>
 inoremap jj <Esc>
 
 noremap U <C-r>
-nnoremap  <leader>q :q<CR>
+nnoremap <leader>q :q<CR>
 
 " Change text without putting into register
 " see https://stackoverflow.com/q/54255/6064933
 nnoremap c "_c
 
 " Replace visual selection with text in register
-xnoremap p "_c<ESC>p
+xnoremap p "_dP
 
 " Continuous visual shifting
 xnoremap < <gv
@@ -53,18 +53,9 @@ nnoremap : ;
 tnoremap <Esc> <C-\><C-n>
 tnoremap jj <C-\><C-n>
 
-" Nvim-tree
-nnoremap <leader>po :NvimTreeToggle<CR>
-nnoremap <leader>pO :NvimTreeFindFile<CR>
-
-" Telescope
-nnoremap <leader>ff :Telescope find_files<CR>
-nnoremap <leader>fc :Telescope live_grep<CR>
-
-" Bufferline
-nnoremap <silent><leader>] :BufferLineCycleNext<CR>
-nnoremap <silent><leader>[ :BufferLineCyclePrev<CR>
-nnoremap <silent>gb :BufferLinePick<CR>
-nnoremap <silent><leader>q :w \| :Bdelete<CR>
+" Buffers
+nnoremap <leader>q :Bdelete<CR>
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprevious<CR>
 
 

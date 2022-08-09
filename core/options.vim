@@ -31,6 +31,8 @@ set ignorecase smartcase
 
 set scrolloff=10
 
+set sidescrolloff=10
+
 set cursorline
 
 set nohlsearch
@@ -38,7 +40,7 @@ set nohlsearch
 set foldlevelstart=1
 
 " Fold by treesitter
-set foldmethod=expr
+" set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
 
@@ -58,6 +60,7 @@ set signcolumn=auto:2
 
 set termguicolors
 
+set completeopt=menuone,noselect
 
 """
 " Setting
@@ -73,7 +76,7 @@ endif
 set noswapfile
 
 " Minimum lines to keep above and below cursor when scrolling
-set mouse=
+set mouse=a
 
 " Persistent undo even after you close a file and re-open it
 set undofile

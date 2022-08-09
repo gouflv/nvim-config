@@ -1,13 +1,18 @@
 require('nvim-treesitter.configs').setup({
     ensure_installed = {
+        'bash',
         'css',
         'dockerfile',
         'html',
         'javascript',
+        'jsdoc',
         'json',
+        'jsonc',
         'lua',
+        'scss',
         'tsx',
         'typescript',
+        'vim',
         'vue',
         'yaml',
     },
@@ -19,6 +24,8 @@ require('nvim-treesitter.configs').setup({
     },
 })
 
-require('treesitter-context').setup({
+require('treesitter-context').setup({})
 
-})
+vim.opt.foldenable = false
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'

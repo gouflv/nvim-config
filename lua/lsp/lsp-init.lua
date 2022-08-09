@@ -16,9 +16,11 @@ lsp.ensure_installed({
     'yamlls',
 })
 
+local bind = vim.keymap.set
+
+-- Lsp common settings
 lsp.on_attach(function(client, bufnr)
     local noremap = { buffer = bufnr, remap = false }
-    local bind = vim.keymap.set
 
     -- Keymaps
     bind('n', '<leader>fm', '<cmd>lua vim.lsp.buf.formatting()<cr>', noremap)
@@ -31,5 +33,16 @@ lsp.on_attach(function(client, bufnr)
     })
 end)
 
-lsp.setup()
+-- Ts plugin
+local tsPlugin = require("typescript")
+tsPlugin.setup({
+    on_attach = function()
+        local noremap = { buffer = bufnr, remap = false }
+        bind('n', '<leader>fo', function()
+            tsPlugin.actions.addMissingImports()
+            tsPlugin.actions.organizeImports()
+        end)
+    end
+})
 
+lsp.setup()

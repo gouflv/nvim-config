@@ -1,4 +1,10 @@
+local map = require('utils').map
+
+local tree_cb = require('nvim-tree.config').nvim_tree_callback
+
 local mapping_list = {
+    { key = {'l', '<CR>', 'o'}, cb = tree_cb 'edit' },
+    { key = 'h', cb = tree_cb 'close_node' },
     { key = 's', action = 'split' },
     { key = 'v', action = 'vsplit' },
     { key = '?', action = 'toggle_help' },
@@ -32,3 +38,7 @@ require('nvim-tree').setup({
 --vim.cmd([[
 --    autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 --]])
+
+-- Keymaps
+map('n', '<leader>po', '<cmd>lua require("nvim-tree").toggle()<CR>')
+map('n', '<leader>pO', '<cmd>lua require("nvim-tree").find_file()<CR>')

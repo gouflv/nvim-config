@@ -1,6 +1,7 @@
 let s:core_files = [
             \ 'options.vim',
             \ 'autocmd.vim',
+            \ 'cmd.vim',
             \ 'mappings.vim',
             \ 'plugins.vim',
             \ 'themes.vim',

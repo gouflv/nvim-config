@@ -8,7 +8,7 @@ require('bufferline').setup({
         offsets = {{
             filetype = 'NvimTree',
 			text = function()
-                return 'cwd> '..getcwd(vim.fn.getcwd())
+                return getcwd(vim.fn.getcwd())
 			end,
             text_align = 'left',
         }},
@@ -17,7 +17,5 @@ require('bufferline').setup({
         show_close_icon = false,
         show_tab_indicators = false,
         indicator_icon = '',
-
-        diagnostics = 'nvim_lsp',
     }
 })
