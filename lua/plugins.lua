@@ -1,21 +1,18 @@
+local status, packer = pcall(require, 'packer')
+if (not status) then
+  return
+end
+
 -- Load packer.nvim
 vim.cmd('packadd packer.nvim')
 
-local function useEdit(use)
-    use 'kylechui/nvim-surround'
-    use 'windwp/nvim-autopairs'
-    use 'numToStr/Comment.nvim'
-    use 'Pocco81/AutoSave.nvim'
-end
-
-require('packer').startup({ function(use)
+packer.startup({ function(use)
     use 'wbthomason/packer.nvim'
 
-    -- Interfaces
+    -- UIs
     use {
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
-        config = function() require('config.nvim-tree') end,
     }
     use {
         'akinsho/bufferline.nvim',
@@ -24,26 +21,20 @@ require('packer').startup({ function(use)
             'kyazdani42/nvim-web-devicons',
             'moll/vim-bbye',
         },
-        config = function() require('config.bufferline') end,
-    }
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = 'nvim-lua/plenary.nvim',
-        config = function() require('config.telescope') end,
     }
     use {
         'nvim-lualine/lualine.nvim',
         requires = 'kyazdani42/nvim-web-devicons',
-        config = function() require('config.lualine') end,
     }
     use {
         'akinsho/toggleterm.nvim',
         tag = 'v2.*',
-        config = function() require('config.toggleterm') end,
     }
-    -- TODO
+
+    -- Telescope
     use {
-        'gelguy/wilder.nvim',
+        'nvim-telescope/telescope.nvim',
+        requires = 'nvim-lua/plenary.nvim',
     }
 
     -- Langrages
@@ -51,7 +42,6 @@ require('packer').startup({ function(use)
         'nvim-treesitter/nvim-treesitter',
         requires = 'nvim-treesitter/nvim-treesitter-context',
         run = ':TSUpdate',
-        config = function() require('config.treesitter') end
     }
     use {
         'hrsh7th/nvim-cmp',
@@ -64,8 +54,13 @@ require('packer').startup({ function(use)
             'L3MON4D3/LuaSnip',
             'saadparwaiz1/cmp_luasnip',
         },
-        config = function() require('config.cmp') end
     }
+
+    -- Editing
+    use { 'kylechui/nvim-surround' }
+    use { 'windwp/nvim-autopairs' }
+    use { 'windwp/nvim-ts-autotag' }
+    use { 'Pocco81/AutoSave.nvim' }
 
     -- Themes
     use 'morhetz/gruvbox'
@@ -74,6 +69,6 @@ end,
         display = {
             open_fn = require('packer.util').float,
         },
-        max_jobs = 8,
+        max_jobs = 5,
     }
 })

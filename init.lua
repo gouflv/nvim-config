@@ -1,0 +1,10 @@
+require('base')
+require('colorscheme')
+require('maps')
+require('plugins')
+
+require('configs.nvim-tree')
+require('configs.bufferline')
+require('configs.lualine')
+require('configs.toggleterm')
+require('configs.telescope')
