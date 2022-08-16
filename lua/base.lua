@@ -20,6 +20,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.clipboard:append({ 'unnamedplus' })
+vim.opt.mouse = 'a'
 
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
