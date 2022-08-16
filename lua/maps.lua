@@ -42,4 +42,3 @@ map('n', ':', ';')
 
 -- Terminal
 map('t', '<Esc>', '<C-\\><C-n>')
-map('t', 'jj', '<C-\\><C-n>')
