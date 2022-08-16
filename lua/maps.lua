@@ -32,8 +32,8 @@ map('n', '<leader>k', '<C-w>k')
 map('n', '<leader>l', '<C-w>l')
 
 -- Buffer
-map('n', '<leader>n', ':bnext<CR>')
-map('n', '<leader>p', ':bprevious<CR>')
+map('n', '<leader>k', ':bnext<CR>')
+map('n', '<leader>j', ':bprevious<CR>')
 map('n', '<leader>c', ':Bdelete<CR>')
 
 -- Run Command easier
@@ -43,4 +43,3 @@ map('n', ':', ';')
 -- Terminal
 map('t', '<Esc>', '<C-\\><C-n>')
 map('t', 'jj', '<C-\\><C-n>')
-

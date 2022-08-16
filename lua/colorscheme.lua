@@ -7,3 +7,4 @@ if not status then
     colorscheme defaut
   ]])
 end
+

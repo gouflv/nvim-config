@@ -1,11 +1,9 @@
 local status, toggleterm = pcall(require, 'toggleterm')
-if not status then
-  return
-end
+if not status then return end
 
 local map = require('utils').map
 
-require('toggleterm').setup({
+toggleterm.setup({
   open_mapping = [[<c-\>]],
 })
 
@@ -21,4 +19,4 @@ function _LAZYGIT_TOGGLE()
   lazygit:toggle()
 end
 
-map('n', '<leader>g', '<cmd>lua _LAZYGIT_TOGGLE()<CR>')
+map('n', '<leader>lg', '<cmd>lua _LAZYGIT_TOGGLE()<CR>')
