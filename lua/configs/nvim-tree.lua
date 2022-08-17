@@ -21,7 +21,11 @@ nvim_tree.setup({
     root_folder_modifier = ':t',
     highlight_opened_files = 'name',
     icons = {
-      show = { folder = false, }
+      show = {
+        folder = false,
+        file = false,
+        git = false
+      }
     }
   },
   view = {
