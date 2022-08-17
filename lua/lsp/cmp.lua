@@ -4,7 +4,7 @@ if not cmp_status then return end
 local snip_status, luasnip = pcall(require, "luasnip")
 if not snip_status then return end
 
-local select_opts = {behavior = cmp.SelectBehavior.Select}
+local select_opts = { behavior = cmp.SelectBehavior.Select }
 
 vim.opt.completeopt = 'menuone,noinsert,noselect'
 
@@ -62,19 +62,20 @@ cmp.setup({
     }),
   },
   formatting = {
-    format = require('lspkind').cmp_format()
+    format = require('lspkind').cmp_format({
+      mode = 'text'
+    })
   }
 })
 
-cmp.setup.cmdline('/', {
-  sources = {
-    { name = 'buffer' }
-  }
-})
-
-cmp.setup.cmdline(':', {
-  sources = {
-    { name = 'cmdline' }
-  }
-})
-
+--cmp.setup.cmdline('/', {
+--  sources = {
+--    { name = 'buffer' }
+--  }
+--})
+--
+--cmp.setup.cmdline(':', {
+--  sources = {
+--    { name = 'cmdline' }
+--  }
+--})
