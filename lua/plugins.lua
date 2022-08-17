@@ -48,7 +48,10 @@ packer.startup({ function(use)
     requires = 'williamboman/mason-lspconfig.nvim'
   }
   use { 'neovim/nvim-lspconfig' }
-  use { 'jose-elias-alvarez/null-ls.nvim' }
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+  }
   use {
     'hrsh7th/nvim-cmp',
     requires = {

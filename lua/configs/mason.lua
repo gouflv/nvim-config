@@ -8,6 +8,7 @@ mason.setup()
 
 mason_lspconfig.setup({
   ensure_installed = {
+    -- LSP
     'bashls',
     'cssls',
     'dockerls',
@@ -19,5 +20,9 @@ mason_lspconfig.setup({
     'tsserver',
     'volar',
     'yamlls',
+    -- Lint
+    'eslint_d',
+    -- Formatting
+    'prettier',
   }
 })

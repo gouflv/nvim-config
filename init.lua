@@ -15,6 +15,7 @@ require('configs.treesitter')
 require('configs.mason')
 require('lsp.lspconfig')
 require('lsp.cmp')
+require('lsp.null-ls')
 
 -- Editing
 require('configs.autopairs')
