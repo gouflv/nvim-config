@@ -1,7 +1,7 @@
-local cmp_status, cmp = pcall(require, "cmp")
+local cmp_status, cmp = pcall(require, 'cmp')
 if not cmp_status then return end
 
-local snip_status, luasnip = pcall(require, "luasnip")
+local snip_status, luasnip = pcall(require, 'luasnip')
 if not snip_status then return end
 
 local select_opts = { behavior = cmp.SelectBehavior.Select }
@@ -13,9 +13,9 @@ cmp.setup({
     expand = function(args) luasnip.lsp_expand(args.body) end
   },
   sources = {
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
     { name = 'path' },
-    { name = 'nvim_lsp', keyword_length = 2 },
-    { name = 'buffer', keyword_length = 2 },
   },
   mapping = {
     -- Select
@@ -39,26 +39,26 @@ cmp.setup({
       end
     end),
 
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       else
         fallback()
       end
     end, {
-      "i",
-      "s",
+      'i',
+      's',
     }),
 
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       else
         fallback()
       end
     end, {
-      "i",
-      "s",
+      'i',
+      's',
     }),
   },
   formatting = {
@@ -67,15 +67,3 @@ cmp.setup({
     })
   }
 })
-
---cmp.setup.cmdline('/', {
---  sources = {
---    { name = 'buffer' }
---  }
---})
---
---cmp.setup.cmdline(':', {
---  sources = {
---    { name = 'cmdline' }
---  }
---})

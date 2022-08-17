@@ -12,7 +12,6 @@ local on_attach = function(client, bufnr)
   end
 
   buf_set_keymap('n', 'K', lsp 'hover()')
-
   buf_set_keymap('n', 'gd', lsp 'definition()')
   buf_set_keymap('n', 'gD', lsp 'declaration()')
   buf_set_keymap('n', 'gi', lsp 'implementation()')
@@ -22,14 +21,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<lerader>ca', lsp 'code_action()')
   buf_set_keymap('n', '<leader>f', lsp 'formatting()')
 
-  -- formatting
-  if client.server_capabilities.documentFormattingProvider then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = vim.api.nvim_create_augroup("Format", { clear = true }),
-      buffer = bufnr,
-      callback = function() vim.lsp.buf.formatting_seq_sync() end
-    })
-  end
+  buf_set_keymap('n', '[d', diagnostic 'goto_prev()')
+  buf_set_keymap('n', ']d', diagnostic 'goto_next()')
 end
 
 -- Set up completion using nvim_cmp with LSP source
@@ -37,6 +30,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
+-- Lua
 nvim_lsp.sumneko_lua.setup {
   on_attach = on_attach,
   settings = {
@@ -44,6 +38,11 @@ nvim_lsp.sumneko_lua.setup {
       diagnostics = {
         globals = { 'vim' },
       },
+      format = {
+        defaultConfig = {
+          quote_style = 'single'
+        }
+      }
     },
   },
 }
