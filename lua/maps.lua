@@ -32,8 +32,8 @@ map('n', '<leader>k', '<C-w>k')
 map('n', '<leader>l', '<C-w>l')
 
 -- Buffer
-map('n', 'gt', ':bnext<CR>')
-map('n', 'gT', ':bprevious<CR>')
+map('n', ']b', ':bnext<CR>')
+map('n', '[b', ':bprevious<CR>')
 map('n', '<leader>c', ':Bdelete<CR>')
 
 -- Run Command easier
