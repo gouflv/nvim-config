@@ -28,6 +28,10 @@ treesitter.setup({
   highlight = {
     enable = true,
   },
+
+  autotag = {
+    enable = true
+  }
 })
 
 treesitter_context.setup({})
