@@ -1,20 +1,26 @@
 local status, nvim_lsp = pcall(require, 'lspconfig')
 if not status then return end
 
+local fmt = function(cmd) return function(str) return cmd:format(str) end end
+local lsp = fmt('<cmd>lua vim.lsp.buf.%s<cr>')
+local diagnostic = fmt('<cmd>lua vim.diagnostic.%s<cr>')
+
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
   -- Mapping
-  local opts = { noremap = true, silent = true }
-  buf_set_keymap('n', 'gd', vim.lsp.buf.definition, opts)
-  buf_set_keymap('n', 'gD', vim.lsp.buf.declaration, opts)
-  buf_set_keymap('n', 'K', vim.lsp.buf.hover, opts)
-  buf_set_keymap('n', 'gi', vim.lsp.buf.implementation, opts)
+  local buf_set_keymap = function(m, lhs, rhs)
+    vim.api.nvim_buf_set_keymap(bufnr, m, lhs, rhs, { noremap = true, silent = true })
+  end
 
-  buf_set_keymap('n', '<leader>rn', vim.lsp.buf.rename, opts)
-  buf_set_keymap('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-  buf_set_keymap('n', 'gr', vim.lsp.buf.references, opts)
-  buf_set_keymap('n', '<leader>f', vim.lsp.buf.formatting, opts)
+  buf_set_keymap('n', 'K', lsp 'hover()')
+
+  buf_set_keymap('n', 'gd', lsp 'definition()')
+  buf_set_keymap('n', 'gD', lsp 'declaration()')
+  buf_set_keymap('n', 'gi', lsp 'implementation()')
+  buf_set_keymap('n', 'gr', lsp 'references()')
+
+  buf_set_keymap('n', '<lerader>rn', lsp 'rename()')
+  buf_set_keymap('n', '<lerader>ca', lsp 'code_action()')
+  buf_set_keymap('n', '<leader>f', lsp 'formatting()')
 
   -- formatting
   if client.server_capabilities.documentFormattingProvider then
