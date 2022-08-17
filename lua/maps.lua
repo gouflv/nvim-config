@@ -1,6 +1,5 @@
 local map = require('utils').map
 
--- map('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 
 map('i', 'jj', '<Esc>')
@@ -16,6 +15,8 @@ map('v', 'p', '"_dP')
 -- Movement
 map('n', 'H', '^')
 map('n', 'L', 'g_')
+map('v', 'H', '^')
+map('v', 'L', 'g_')
 
 -- Continuous visual shifting
 map('v', '>', '>gv')
