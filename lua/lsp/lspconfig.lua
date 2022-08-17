@@ -29,9 +29,9 @@ local on_attach = function(client, bufnr)
 end
 
 -- Set up completion using nvim_cmp with LSP source
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Lua
 nvim_lsp.sumneko_lua.setup {
@@ -49,6 +49,10 @@ nvim_lsp.sumneko_lua.setup {
     },
   },
 }
+
+nvim_lsp.emmet_ls.setup({
+  capabilities = capabilities
+})
 
 -- TS
 nvim_lsp.tsserver.setup({
