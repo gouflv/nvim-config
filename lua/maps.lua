@@ -42,4 +42,4 @@ map('n', ';', ':')
 map('n', ':', ';')
 
 -- Terminal
-map('t', '<Esc>', '<C-\\><C-n>')
+map('t', '<S-Esc>', '<C-\\><C-n>')
