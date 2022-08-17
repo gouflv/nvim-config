@@ -13,16 +13,7 @@ local Terminal = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
   cmd = 'lazygit',
   direction = "float",
-  on_open = function(term)
-    vim.cmd('startinsert!')
-    vim.api.nvim_buf_set_keymap(
-      term.bufnr,
-      'n',
-      'q',
-      '<Cmd>close<CR>',
-      { noremap = true }
-    )
-  end
+  hidden = true
 })
 
 function _LAZYGIT_TOGGLE()
