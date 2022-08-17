@@ -19,7 +19,7 @@ cmp.setup({
   },
   mapping = {
     -- Select
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
     -- Navigate
     ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
