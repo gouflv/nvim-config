@@ -18,3 +18,4 @@ require('lsp.cmp')
 
 -- Editing
 require('configs.autopairs')
+require('configs.gitsigns')

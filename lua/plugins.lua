@@ -68,6 +68,7 @@ packer.startup({ function(use)
   use { 'windwp/nvim-autopairs' }
   use { 'windwp/nvim-ts-autotag' }
   use { 'Pocco81/AutoSave.nvim' }
+  use { 'lewis6991/gitsigns.nvim' }
 
   -- Themes
   use 'morhetz/gruvbox'
