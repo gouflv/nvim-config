@@ -214,6 +214,11 @@ _G.packer_plugins = {
     path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
+  ["typescript.nvim"] = {
+    loaded = true,
+    path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/typescript.nvim",
+    url = "https://github.com/jose-elias-alvarez/typescript.nvim"
+  },
   ["vim-bbye"] = {
     loaded = true,
     path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/vim-bbye",

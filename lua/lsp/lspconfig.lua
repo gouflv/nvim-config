@@ -24,7 +24,15 @@ local lsp_keymaps = function(bufnr)
   buf_set_keymap('n', ']d', diagnostic 'goto_next()')
 end
 
+local lsp_format = function(bufnr)
+  vim.lsp.buf.format({
+    filter = function(client)
+    end
+  })
+end
+
 local on_attach = function(client, bufnr)
+
   lsp_keymaps(bufnr)
 end
 
@@ -50,12 +58,26 @@ nvim_lsp.sumneko_lua.setup {
   },
 }
 
-nvim_lsp.emmet_ls.setup({
-  capabilities = capabilities
+-- Emmet
+nvim_lsp.emmet_ls.setup({ capabilities = capabilities })
+
+-- JSON
+nvim_lsp.jsonls.setup({ capabilities = capabilities })
+
+-- Tailwind
+nvim_lsp.tailwindcss.setup({})
+
+-- Typescript
+local ts_status, ts = pcall(require, 'typescript')
+if not ts_status then return end
+ts.setup({
+  server = {
+    on_attach = on_attach,
+    capabilities = capabilities
+  }
 })
 
--- TS
-nvim_lsp.tsserver.setup({
-  on_attach = on_attach,
-  capabilities = capabilities
-})
+
+
+
+
