@@ -66,12 +66,13 @@ packer.startup({ function(use)
       'onsails/lspkind.nvim',
     },
   }
+  use { 'b0o/schemastore.nvim' }
 
   -- Editing
   use { 'kylechui/nvim-surround' }
   use { 'windwp/nvim-autopairs' }
   use { 'windwp/nvim-ts-autotag' }
-  use { 'Pocco81/AutoSave.nvim' }
+  use { 'Pocco81/auto-save.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
 
   -- Themes
