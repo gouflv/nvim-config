@@ -72,6 +72,7 @@ packer.startup({ function(use)
   use { 'Pocco81/auto-save.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
   use { 'phaazon/hop.nvim', branch = 'v2' }
+  use { 'tpope/vim-surround' }
 
   -- Themes
   use 'morhetz/gruvbox'
