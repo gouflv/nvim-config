@@ -27,6 +27,7 @@ packer.startup({ function(use)
     requires = 'kyazdani42/nvim-web-devicons',
   }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
+  use { 'lukas-reineke/indent-blankline.nvim' }
 
   -- Telescope
   use {
