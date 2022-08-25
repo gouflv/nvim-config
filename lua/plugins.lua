@@ -26,10 +26,7 @@ packer.startup({ function(use)
     'nvim-lualine/lualine.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
   }
-  use {
-    'akinsho/toggleterm.nvim',
-    tag = 'v2.*',
-  }
+  use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
 
   -- Telescope
   use {
@@ -74,6 +71,7 @@ packer.startup({ function(use)
   use { 'windwp/nvim-ts-autotag' }
   use { 'Pocco81/auto-save.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
+  use { 'phaazon/hop.nvim', branch = 'v2' }
 
   -- Themes
   use 'morhetz/gruvbox'
