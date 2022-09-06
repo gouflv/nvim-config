@@ -28,6 +28,7 @@ packer.startup({ function(use)
   }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
   use { 'lukas-reineke/indent-blankline.nvim' }
+  use { 'gelguy/wilder.nvim' }
 
   -- Telescope
   use {
@@ -74,6 +75,7 @@ packer.startup({ function(use)
   use { 'lewis6991/gitsigns.nvim' }
   use { 'phaazon/hop.nvim', branch = 'v2' }
   use { 'tpope/vim-surround' }
+  use { 'numToStr/Comment.nvim' }
 
   -- Themes
   use 'morhetz/gruvbox'

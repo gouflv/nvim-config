@@ -20,6 +20,7 @@ mason_lspconfig.setup({
     'html',
     'jsonls',
     'sumneko_lua',
+    'stylelint_lsp',
     'tailwindcss',
     'tsserver',
     'volar',
@@ -28,5 +29,6 @@ mason_lspconfig.setup({
     'eslint_d',
     -- Formatting
     'prettier',
-  }
+  },
+  automatic_installation = true
 })

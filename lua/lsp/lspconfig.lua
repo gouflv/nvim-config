@@ -98,5 +98,6 @@ ts.setup({
 
 -- Vuejs
 nvim_lsp.volar.setup({
-
+  on_attach = on_attach,
+  capabilities = capabilities,
 })
