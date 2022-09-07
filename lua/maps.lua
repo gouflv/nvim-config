@@ -5,6 +5,9 @@ vim.g.mapleader = ' '
 map('i', 'jj', '<Esc>')
 map('i', 'jk', '<Esc>')
 
+-- Redo 
+map('n', 'U', '<C-R>')
+
 -- Change text without putting into register
 map('n', 'c', '"_c')
 
