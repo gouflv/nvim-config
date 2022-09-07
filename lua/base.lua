@@ -19,7 +19,6 @@ vim.opt.relativenumber = true
 vim.opt.iskeyword:append('-')
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
-
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false

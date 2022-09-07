@@ -13,13 +13,11 @@ local mapping_list = {
 }
 
 nvim_tree.setup({
-  open_on_setup = true,
+  -- open_on_setup = true,
   filters = {
     custom = { 'node_modules', '^.git$' },
   },
   renderer = {
-    root_folder_modifier = ':t',
-    highlight_opened_files = 'name',
     icons = {
       show = {
         folder = false,

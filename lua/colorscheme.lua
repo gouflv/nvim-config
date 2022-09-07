@@ -1,4 +1,4 @@
-local status = pcall(vim.cmd, [[
+pcall(vim.cmd, [[
   colorscheme gruvbox
 ]])
 
