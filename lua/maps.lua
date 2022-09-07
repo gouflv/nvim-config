@@ -53,3 +53,5 @@ map('n', ':', ';')
 
 -- Terminal
 map('t', '<S-Esc>', '<C-\\><C-n>')
+map('t', 'jk', '<C-\\><C-n>')
+
