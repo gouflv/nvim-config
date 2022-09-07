@@ -88,7 +88,7 @@ if not ts_status then return end
 ts.setup({
   server = {
     on_attach = function(client, bufnr)
-      -- Disable tsserver format
+      -- Disable tsserver formatter
       client.resolved_capabilities.document_formatting = false
       on_attach(client, bufnr)
     end,
@@ -98,6 +98,10 @@ ts.setup({
 
 -- Vuejs
 nvim_lsp.volar.setup({
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    -- Disable volar formatter
+    client.resolved_capabilities.document_formatting = false
+    on_attach(client, bufnr)
+  end,
   capabilities = capabilities,
 })
