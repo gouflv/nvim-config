@@ -5,7 +5,7 @@ local fmt = function(cmd) return function(str) return cmd:format(str) end end
 local lsp = fmt('<cmd>lua vim.lsp.buf.%s<cr>')
 local diagnostic = fmt('<cmd>lua vim.diagnostic.%s<cr>')
 
-local lsp_keymaps = function(bufnr)
+local set_keymaps = function(bufnr)
   local buf_set_keymap = function(m, lhs, rhs)
     vim.api.nvim_buf_set_keymap(bufnr, m, lhs, rhs, { noremap = true, silent = true })
   end
@@ -23,12 +23,18 @@ local lsp_keymaps = function(bufnr)
   buf_set_keymap('n', ']d', diagnostic 'goto_next()')
 end
 
-local on_attach = function(client, bufnr)
-  if client.name == 'tsserver' then
-    client.server_capabilities.document_formatting = false
-  end
+local set_client_formatting = function(client, enable)
+  client.resolved_capabilities.document_formatting = enable
+  client.resolved_capabilities.document_range_formatting = enable
+end
 
-  lsp_keymaps(bufnr)
+local on_attach = function(client, bufnr)
+  set_keymaps(bufnr)
+end
+
+local on_attach_disable_formatting = function(client, bufnr)
+  set_client_formatting(client, false)
+  set_keymaps(bufnr)
 end
 
 -- Set up completion using nvim_cmp with LSP source
@@ -38,16 +44,33 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Server setup helper
-local defaultSetup = function(server_name)
+local lsp_setup = function(server_name, options)
+  local formatting = true
+  local settings = {}
+
+  if options and options.disable_formatting then formatting = false end
+  if options and options.settings then settings = options.settings end
+
   nvim_lsp[server_name].setup({
-    on_attach = on_attach,
-    capabilities = capabilities
+    on_attach = function(client, bufnr)
+      set_client_formatting(client, formatting)
+      set_keymaps(bufnr)
+    end,
+    capabilities = capabilities,
+    settings = settings
   })
 end
 
+lsp_setup('bashls')
+lsp_setup('html', { disable_formatting = true })
+lsp_setup('cssls', { disable_formatting = true })
+lsp_setup('emmet_ls', { disable_formatting = true })
+lsp_setup('tailwindcss', { disable_formatting = true })
+lsp_setup('yamlls', { disable_formatting = true })
+
+
 -- Lua
-nvim_lsp.sumneko_lua.setup({
-  on_attach = on_attach,
+lsp_setup('sumneko_lua', {
   settings = {
     Lua = {
       diagnostics = {
@@ -62,18 +85,8 @@ nvim_lsp.sumneko_lua.setup({
   },
 })
 
-defaultSetup('bashls')
-defaultSetup('html')
-defaultSetup('cssls')
-defaultSetup('emmet_ls')
-defaultSetup('jsonls')
-defaultSetup('tailwindcss')
-defaultSetup('yamlls')
-
--- JSON
-nvim_lsp.jsonls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
+lsp_setup('jsonls', {
+  disable_formatting = true,
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
@@ -87,21 +100,13 @@ local ts_status, ts = pcall(require, 'typescript')
 if not ts_status then return end
 ts.setup({
   server = {
-    on_attach = function(client, bufnr)
-      -- Disable tsserver formatter
-      client.resolved_capabilities.document_formatting = false
-      on_attach(client, bufnr)
-    end,
+    on_attach = on_attach_disable_formatting,
     capabilities = capabilities
   }
 })
 
 -- Vuejs
 nvim_lsp.volar.setup({
-  on_attach = function(client, bufnr)
-    -- Disable volar formatter
-    client.resolved_capabilities.document_formatting = false
-    on_attach(client, bufnr)
-  end,
+  on_attach = on_attach_disable_formatting,
   capabilities = capabilities,
 })
