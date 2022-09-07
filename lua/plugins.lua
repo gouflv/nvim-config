@@ -51,7 +51,6 @@ packer.startup({ function(use)
     'jose-elias-alvarez/null-ls.nvim',
     requires = 'nvim-lua/plenary.nvim',
   }
-  use { 'jose-elias-alvarez/typescript.nvim' }
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -65,17 +64,22 @@ packer.startup({ function(use)
       'onsails/lspkind.nvim',
     },
   }
+
+  -- Typescript
+  use { 'jose-elias-alvarez/typescript.nvim' }
+
+  -- JSON
   use { 'b0o/schemastore.nvim' }
 
   -- Editing
-  use { 'kylechui/nvim-surround' }
   use { 'windwp/nvim-autopairs' }
-  use { 'windwp/nvim-ts-autotag' }
+  use { 'kylechui/nvim-surround' }
+  use { 'phaazon/hop.nvim', branch = 'v2' }
+  use { 'numToStr/Comment.nvim' }
+
+  -- Other
   use { 'Pocco81/auto-save.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
-  use { 'phaazon/hop.nvim', branch = 'v2' }
-  use { 'tpope/vim-surround' }
-  use { 'numToStr/Comment.nvim' }
 
   -- Themes
   use 'morhetz/gruvbox'
