@@ -28,10 +28,6 @@ local set_client_formatting = function(client, enable)
   client.resolved_capabilities.document_range_formatting = enable
 end
 
-local on_attach = function(client, bufnr)
-  set_keymaps(bufnr)
-end
-
 local on_attach_disable_formatting = function(client, bufnr)
   set_client_formatting(client, false)
   set_keymaps(bufnr)
