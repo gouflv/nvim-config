@@ -15,6 +15,7 @@ require('configs.treesitter')
 require('configs.mason')
 require('lsp.lspconfig')
 require('lsp.null-ls')
+require('lsp.lspsaga')
 
 require('configs.autopairs')
 require('configs.surround')

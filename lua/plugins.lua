@@ -64,6 +64,7 @@ packer.startup({ function(use)
       'onsails/lspkind.nvim',
     },
   }
+  use { 'glepnir/lspsaga.nvim', branch = 'main' }
 
   -- Typescript
   use { 'jose-elias-alvarez/typescript.nvim' }
