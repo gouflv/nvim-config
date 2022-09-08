@@ -74,6 +74,7 @@ packer.startup({ function(use)
 
   -- Editing
   use { 'windwp/nvim-autopairs' }
+  use { 'windwp/nvim-ts-autotag' }
   use { 'kylechui/nvim-surround' }
   use { 'phaazon/hop.nvim', branch = 'v2' }
   use { 'numToStr/Comment.nvim' }

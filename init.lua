@@ -18,6 +18,7 @@ require('lsp.null-ls')
 require('lsp.lspsaga')
 
 require('configs.autopairs')
+require('configs.ts-autotag')
 require('configs.surround')
 require('configs.hop')
 require('configs.comment')
