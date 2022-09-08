@@ -82,6 +82,7 @@ packer.startup({ function(use)
   -- Other
   use { 'Pocco81/auto-save.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
+  use { 'karb94/neoscroll.nvim' }
 
   -- Themes
   use 'morhetz/gruvbox'
