@@ -3,6 +3,7 @@ require('colorscheme')
 require('maps')
 require('plugins')
 
+require('configs.alpha')
 require('configs.nvim-tree')
 require('configs.bufferline')
 require('configs.lualine')
