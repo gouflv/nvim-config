@@ -2,7 +2,6 @@ local map = require('utils').map
 
 vim.g.mapleader = ' '
 
-map('i', 'jj', '<Esc>')
 map('i', 'jk', '<Esc>')
 
 -- Redo 

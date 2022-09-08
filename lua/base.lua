@@ -1,7 +1,3 @@
-local vim = vim
-
--- aaabadfds
-
 vim.opt.fileencoding = 'utf-8'
 
 vim.opt.tabstop = 2

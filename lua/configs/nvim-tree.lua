@@ -40,4 +40,4 @@ nvim_tree.setup({
 --]])
 
 map('n', '<leader>po', '<cmd>lua require("nvim-tree").toggle()<CR>')
-map('n', '<leader>pO', '<cmd>lua require("nvim-tree").find_file()<CR>')
+map('n', '<leader>pf', '<cmd>lua require("nvim-tree").find_file()<CR>')
