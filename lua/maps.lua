@@ -2,6 +2,7 @@ local map = require('utils').map
 
 vim.g.mapleader = ' '
 
+map('i', 'jj', '<Esc>')
 map('i', 'jk', '<Esc>')
 
 -- Redo 
@@ -52,5 +53,6 @@ map('n', ':', ';')
 
 -- Terminal
 map('t', '<S-Esc>', '<C-\\><C-n>')
+map('t', 'jj', '<C-\\><C-n>')
 map('t', 'jk', '<C-\\><C-n>')
 
