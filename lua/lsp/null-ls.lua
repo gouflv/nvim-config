@@ -7,31 +7,43 @@ local code_actions = null_ls.builtins.code_actions
 
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
-local eslint_condition = function(utils)
-  return utils.root_has_file({
-    '.eslintrc',
-    '.eslintrc.js',
-    '.eslintrc.json',
-  })
-
+local has_file_condition = function(file)
+  return function(utils)
+    return utils.root_has_file(file)
+  end
 end
+
+local eslint_condition = has_file_condition({
+  '.eslintrc',
+  '.eslintrc.js',
+  '.eslintrc.json',
+})
+
+local prettier_condition = has_file_condition({
+  '.prettierrc',
+  '.prettierrc.js',
+  '.prettierrc.json',
+})
 
 null_ls.setup({
   debug = false,
   sources = {
+    -- Prettier
+    formatting.prettier.with({
+      condition = prettier_condition
+    }),
+
     -- ESLint
     diagnostics.eslint_d.with({
-      -- filter = function (diagnostics)
-      --   return diagnostics.code ~= 'prettier/prettier'
-      -- end,
+      filter = function(d) return d.code ~= 'prettier/prettier' end,
       condition = eslint_condition
     }),
     code_actions.eslint_d.with({
       condition = eslint_condition
     }),
-
-    -- Prettier
-    formatting.prettier,
+    formatting.eslint_d.with({
+      condition = eslint_condition
+    }),
   },
   on_attach = function(client, bufnr)
     if client.supports_method('textDocument/formatting') then
