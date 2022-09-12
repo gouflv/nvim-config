@@ -42,7 +42,9 @@ null_ls.setup({
       condition = eslint_condition
     }),
     formatting.eslint_d.with({
-      condition = eslint_condition
+      condition = function (utils)
+        return eslint_condition(utils) and not prettier_condition(utils)
+      end
     }),
   },
   on_attach = function(client, bufnr)
