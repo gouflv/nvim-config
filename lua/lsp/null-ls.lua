@@ -42,8 +42,15 @@ null_ls.setup({
       condition = eslint_condition
     }),
     formatting.eslint_d.with({
-      condition = function (utils)
+      condition = function(utils)
         return eslint_condition(utils) and not prettier_condition(utils)
+      end
+    }),
+
+    -- CSpell
+    diagnostics.cspell.with({
+      diagnostics_postprocess = function(diagnostic)
+        diagnostic.severity = vim.diagnostic.severity['INFO']
       end
     }),
   },
@@ -56,5 +63,14 @@ null_ls.setup({
         callback = function() vim.lsp.buf.formatting_sync() end
       })
     end
+
+    vim.diagnostic.config({
+      virtual_text = {
+        severity = { min = vim.diagnostic.severity.WARN }
+      },
+      signs = {
+        severity = { min = vim.diagnostic.severity.WARN }
+      }
+    })
   end
 })
