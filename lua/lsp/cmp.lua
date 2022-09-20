@@ -13,9 +13,10 @@ cmp.setup({
     expand = function(args) luasnip.lsp_expand(args.body) end
   },
   sources = {
+    { name = 'copilot' },
     { name = 'nvim_lsp' },
-    { name = 'buffer' },
     { name = 'path' },
+    { name = 'buffer', group_index = 2 },
   },
   mapping = {
     -- Select
@@ -63,7 +64,8 @@ cmp.setup({
   },
   formatting = {
     format = require('lspkind').cmp_format({
-      mode = 'text'
+      mode = 'text',
+      maxwidth = 40
     })
   }
 })

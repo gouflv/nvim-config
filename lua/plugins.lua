@@ -83,6 +83,12 @@ packer.startup({ function(use)
   use { 'phaazon/hop.nvim', branch = 'v2' }
   use { 'numToStr/Comment.nvim' }
 
+  -- Copilot
+  use { 'zbirenbaum/copilot.lua', event = { 'VimEnter' } }
+  use { 'zbirenbaum/copilot-cmp', after = { 'copilot.lua' }, config = function()
+    require('configs.copilot')
+  end }
+
   -- Other
   use { 'Pocco81/auto-save.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
