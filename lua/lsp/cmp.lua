@@ -13,7 +13,8 @@ cmp.setup({
     expand = function(args) luasnip.lsp_expand(args.body) end
   },
   sources = {
-    { name = 'copilot' },
+    -- For copilot-cmp
+    -- { name = 'copilot' },
     { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'buffer', group_index = 2 },

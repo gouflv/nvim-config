@@ -26,5 +26,6 @@ require('configs.comment')
 
 require('configs.auto-save')
 require('configs.gitsigns')
-require('configs.scroll')
+-- require('configs.scroll')
 
+require('configs.copilot')

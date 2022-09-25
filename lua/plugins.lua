@@ -84,10 +84,11 @@ packer.startup({ function(use)
   use { 'numToStr/Comment.nvim' }
 
   -- Copilot
-  use { 'zbirenbaum/copilot.lua', event = { 'VimEnter' } }
-  use { 'zbirenbaum/copilot-cmp', after = { 'copilot.lua' }, config = function()
-    require('configs.copilot')
-  end }
+  use { 'github/copilot.vim' }
+  -- use { 'zbirenbaum/copilot.lua', event = { 'VimEnter' } }
+  -- use { 'zbirenbaum/copilot-cmp', after = { 'copilot.lua' }, config = function()
+    -- require('configs.copilot')
+  -- end }
 
   -- Other
   use { 'Pocco81/auto-save.nvim' }
