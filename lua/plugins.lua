@@ -28,7 +28,6 @@ packer.startup({ function(use)
   }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
   use { 'lukas-reineke/indent-blankline.nvim' }
-  use { 'gelguy/wilder.nvim' }
   use {
     'goolord/alpha-nvim',
     requires = 'kyazdani42/nvim-web-devicons'

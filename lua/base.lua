@@ -20,7 +20,7 @@ vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.clipboard:append({ 'unnamedplus' })
 vim.opt.mouse = 'a'
-vim.opt.wildmode = 'list:longest,full'
+vim.opt.wildmode = 'longest:full,full'
 
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
