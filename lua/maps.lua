@@ -46,6 +46,7 @@ map('n', '<leader>l', '<C-w>l')
 map('n', '<C-n>', ':bnext<CR>')
 map('n', '<C-p>', ':bprevious<CR>')
 map('n', '<leader>c', ':Bdelete<CR>')
+map('n', '<leader>C', ':bufdo :Bdelete<CR>')
 
 -- Run Command easier
 map('n', ';', ':')
