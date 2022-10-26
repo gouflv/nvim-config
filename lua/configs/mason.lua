@@ -26,9 +26,9 @@ mason_lspconfig.setup({
     'volar',
     'yamlls',
     -- Lint
-    'eslint_d',
+    'eslint',
     -- Formatting
-    'prettier',
+    -- 'prettier',
   },
   automatic_installation = true
 })
