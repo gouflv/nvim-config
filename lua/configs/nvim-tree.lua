@@ -22,7 +22,7 @@ nvim_tree.setup({
       show = {
         folder = false,
         file = false,
-        git = false
+        -- git = false
       }
     }
   },
@@ -39,5 +39,5 @@ nvim_tree.setup({
 --    autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 --]])
 
-map('n', '<leader>pf', '<cmd>lua require("nvim-tree").toggle()<CR>')
-map('n', '<leader>pg', '<cmd>lua require("nvim-tree").find_file()<CR>')
+map('n', '<leader>ee', '<cmd>lua require("nvim-tree").toggle()<CR>')
+map('n', '<leader>ef', '<cmd>lua require("nvim-tree").toggle({ find_file = true })<CR>')
