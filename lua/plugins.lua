@@ -27,13 +27,10 @@ packer.startup({ function(use)
     requires = 'kyazdani42/nvim-web-devicons',
   }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
-  use { 'lukas-reineke/indent-blankline.nvim' }
   use {
     'goolord/alpha-nvim',
     requires = 'kyazdani42/nvim-web-devicons'
   }
-
-  -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
     requires = 'nvim-lua/plenary.nvim',
@@ -42,9 +39,9 @@ packer.startup({ function(use)
   -- Langrages
   use {
     'nvim-treesitter/nvim-treesitter',
-    requires = 'nvim-treesitter/nvim-treesitter-context',
     run = ':TSUpdate',
   }
+  use { 'nvim-treesitter/nvim-treesitter-context' }
   use {
     'williamboman/mason.nvim',
     requires = 'williamboman/mason-lspconfig.nvim'
@@ -68,31 +65,18 @@ packer.startup({ function(use)
     },
   }
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
-
-  -- Typescript
   use { 'jose-elias-alvarez/typescript.nvim' }
-
-  -- JSON
   use { 'b0o/schemastore.nvim' }
 
   -- Editing
+  use { 'lukas-reineke/indent-blankline.nvim' }
   use { 'windwp/nvim-autopairs' }
   use { 'windwp/nvim-ts-autotag' }
   use { 'kylechui/nvim-surround' }
   use { 'phaazon/hop.nvim', branch = 'v2' }
   use { 'numToStr/Comment.nvim' }
-
-  -- Copilot
-  use { 'github/copilot.vim' }
-  -- use { 'zbirenbaum/copilot.lua', event = { 'VimEnter' } }
-  -- use { 'zbirenbaum/copilot-cmp', after = { 'copilot.lua' }, config = function()
-    -- require('configs.copilot')
-  -- end }
-
-  -- Other
-  use { 'Pocco81/auto-save.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
-  use { 'karb94/neoscroll.nvim' }
+  use { 'github/copilot.vim' }
 
   -- Themes
   use 'morhetz/gruvbox'

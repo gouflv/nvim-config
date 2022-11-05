@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  ["auto-save.nvim"] = {
-    loaded = true,
-    path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
-    url = "https://github.com/Pocco81/auto-save.nvim"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -178,11 +173,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["neoscroll.nvim"] = {
-    loaded = true,
-    path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
-    url = "https://github.com/karb94/neoscroll.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
