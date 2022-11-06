@@ -35,18 +35,25 @@ packer.startup({ function(use)
     'nvim-telescope/telescope.nvim',
     requires = 'nvim-lua/plenary.nvim',
   }
+  use {
+    'nvim-telescope/telescope-file-browser.nvim'
+  }
 
   -- Langrages
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
-  use { 'nvim-treesitter/nvim-treesitter-context' }
+  use {
+    'nvim-treesitter/nvim-treesitter-context'
+  }
   use {
     'williamboman/mason.nvim',
     requires = 'williamboman/mason-lspconfig.nvim'
   }
-  use { 'neovim/nvim-lspconfig' }
+  use {
+    'neovim/nvim-lspconfig'
+  }
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = 'nvim-lua/plenary.nvim',
@@ -76,6 +83,12 @@ packer.startup({ function(use)
   use { 'phaazon/hop.nvim', branch = 'v2' }
   use { 'numToStr/Comment.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
+  use { 'norcalli/nvim-colorizer.lua' }
+
+  use({
+    'iamcco/markdown-preview.nvim',
+    run = function() vim.fn['mkdp#util#install']() end,
+  })
   use { 'github/copilot.vim' }
 
   -- Themes
