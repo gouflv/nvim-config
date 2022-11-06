@@ -9,7 +9,7 @@ telescope.setup({
   defaults = {
     file_ignore_patterns = { ".git/", "node_modules" },
     mappings = {
-      ['n'] = {
+      n = {
         ['q'] = actions.close
       }
     }

@@ -9,6 +9,7 @@ lualine.setup({
   sections = {
     lualine_b = {
       { 'branch', icons_enabled = false, },
+      'diff',
       'diagonstics',
     },
     lualine_x = {
