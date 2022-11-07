@@ -33,13 +33,12 @@ packer.startup({ function(use)
   }
   use {
     'nvim-telescope/telescope.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-  }
-  use {
-    'nvim-telescope/telescope-file-browser.nvim'
-  }
-  use {
-    'tknightz/telescope-termfinder.nvim'
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-file-browser.nvim',
+      'tknightz/telescope-termfinder.nvim'
+
+    },
   }
 
   -- Langrages

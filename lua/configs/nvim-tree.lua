@@ -13,7 +13,7 @@ local mapping_list = {
 }
 
 nvim_tree.setup({
-  -- open_on_setup = true,
+  open_on_setup = false,
   filters = {
     custom = { 'node_modules', '^.git$' },
   },
@@ -34,10 +34,5 @@ nvim_tree.setup({
   }
 })
 
--- Auto close vim if tree is last window
---vim.cmd([[
---    autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
---]])
-
-map('n', '<leader>ee', '<cmd>lua require("nvim-tree").toggle()<CR>')
-map('n', '<leader>ef', '<cmd>lua require("nvim-tree").toggle({ find_file = true })<CR>')
+map('n', '<leader>ee', function() nvim_tree.toggle() end)
+map('n', '<leader>ef', function() nvim_tree.toggle({ find_file = true }) end)
