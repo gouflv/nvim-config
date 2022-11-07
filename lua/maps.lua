@@ -47,6 +47,8 @@ map('n', '<leader>l', '<C-w>l')
 -- Buffer
 map('n', '<C-n>', ':bnext<CR>')
 map('n', '<C-p>', ':bprevious<CR>')
+map('n', '<Tab>', ':bnext<CR>')
+map('n', '<S-Tab>', ':bprevious<CR>')
 map('n', '<leader>x', ':Bdelete<CR>')
 map('n', '<leader>X', ':bufdo :Bdelete<CR>')
 
@@ -55,5 +57,8 @@ map('n', ';', ':')
 map('n', ':', ';')
 
 -- Terminal
-map('t', '<S-Esc>', '<C-\\><C-n>')
+map('t', '<C-x>', '<C-\\><C-n>')
 map('t', 'jk', '<C-\\><C-n>')
+
+-- No hl
+map('n', '<Esc>', ':noh<CR>')
