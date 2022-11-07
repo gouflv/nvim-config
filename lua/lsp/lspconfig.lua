@@ -5,63 +5,43 @@ local fmt = function(cmd) return function(str) return cmd:format(str) end end
 local lsp = fmt('<cmd>lua vim.lsp.buf.%s<CR>')
 local diagnostic = fmt('<cmd>lua vim.diagnostic.%s<CR>')
 
-local set_keymaps = function(bufnr)
-  local buf_set_keymap = function(m, lhs, rhs)
-    vim.api.nvim_buf_set_keymap(bufnr, m, lhs, rhs, { noremap = true, silent = true })
-  end
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
+  local opts = { noremap = true, silent = true }
 
   -- buf_set_keymap('n', 'K', lsp 'hover()')
-  buf_set_keymap('n', 'gd', lsp 'definition()')
   -- buf_set_keymap('n', 'gD', lsp 'declaration()')
   -- buf_set_keymap('n', 'gi', lsp 'implementation()')
   -- buf_set_keymap('n', 'gr', lsp 'references()')
   -- buf_set_keymap('n', 'gs', lsp 'signature_help()')
   -- buf_set_keymap('n', '<leader>rn', lsp 'rename()')
   -- buf_set_keymap('n', '<leader>a', lsp 'code_action()')
-  buf_set_keymap('n', '<leader>f', lsp 'formatting()')
   -- buf_set_keymap('n', '[d', diagnostic 'goto_prev()')
   -- buf_set_keymap('n', ']d', diagnostic 'goto_next()')
-end
 
-local set_client_formatting = function(client, enable)
-  client.server_capabilities.document_formatting = enable
-  client.server_capabilities.document_range_formatting = enable
-end
-
-local on_attach_disable_formatting = function(client, bufnr)
-  set_client_formatting(client, false)
-  set_keymaps(bufnr)
+  buf_set_keymap('n', 'gd', lsp 'definition()', opts)
+  buf_set_keymap('n', '<leader>f', lsp 'format()', opts)
 end
 
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Server setup helper
 local lsp_setup = function(server_name, options)
-  local formatting = true
-  local settings = {}
-
-  if options and options.disable_formatting then formatting = false end
-  if options and options.settings then settings = options.settings end
-
   nvim_lsp[server_name].setup({
-    on_attach = function(client, bufnr)
-      set_client_formatting(client, formatting)
-      set_keymaps(bufnr)
-    end,
+    on_attach = on_attach,
     capabilities = capabilities,
-    settings = settings
+    settings = options and options.settings or nil
   })
 end
 
 lsp_setup('bashls')
-lsp_setup('html', { disable_formatting = true })
-lsp_setup('cssls', { disable_formatting = true })
-lsp_setup('emmet_ls', { disable_formatting = true })
-lsp_setup('tailwindcss', { disable_formatting = true })
-lsp_setup('yamlls', { disable_formatting = true })
-
+lsp_setup('html')
+lsp_setup('cssls')
+lsp_setup('emmet_ls')
+lsp_setup('tailwindcss')
+lsp_setup('yamlls')
 
 -- Lua
 lsp_setup('sumneko_lua', {
@@ -80,7 +60,6 @@ lsp_setup('sumneko_lua', {
 })
 
 lsp_setup('jsonls', {
-  disable_formatting = true,
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
@@ -91,16 +70,14 @@ lsp_setup('jsonls', {
 
 -- Typescript
 local ts_status, ts = pcall(require, 'typescript')
-if not ts_status then return end
-ts.setup({
-  server = {
-    on_attach = on_attach_disable_formatting,
-    capabilities = capabilities
-  }
-})
+if ts_status then
+  ts.setup({
+    server = {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
+  })
+end
 
 -- Vuejs
-nvim_lsp.volar.setup({
-  on_attach = on_attach_disable_formatting,
-  capabilities = capabilities,
-})
+lsp_setup('volar')

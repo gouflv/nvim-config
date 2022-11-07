@@ -7,9 +7,9 @@ local code_actions = null_ls.builtins.code_actions
 
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
-local has_file_condition = function(file)
+local has_file_condition = function(files)
   return function(utils)
-    return utils.root_has_file(file)
+    return utils.root_has_file(files)
   end
 end
 
@@ -60,7 +60,13 @@ null_ls.setup({
       vim.api.nvim_create_autocmd('BufWritePre', {
         group = augroup,
         buffer = bufnr,
-        callback = function() vim.lsp.buf.format() end
+        callback = function()
+          vim.lsp.buf.format({
+            filter = function(client)
+              return client.name == 'null-ls'
+            end
+          })
+        end
       })
     end
 
@@ -74,3 +80,11 @@ null_ls.setup({
     })
   end
 })
+
+vim.api.nvim_create_user_command(
+  'DisableLspFormatting',
+  function()
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = 0 })
+  end,
+  { nargs = 0 }
+)
