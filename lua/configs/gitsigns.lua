@@ -5,5 +5,8 @@ if not status then return end
 
 gitsigns.setup()
 
-map('n', ']c', "<cmd>lua require'gitsigns'.next_hunk()<CR>")
-map('n', '[c', "<cmd>lua require'gitsigns'.prev_hunk()<CR>")
+map('n', ']c', function() gitsigns.next_hunk() end)
+map('n', '[c', function() gitsigns.prev_hunk() end)
+
+map('n', '<leader>gir', function() gitsigns.reset_hunk() end)
+map('n', '<leader>gid', function() gitsigns.diffthis() end)
