@@ -249,6 +249,11 @@ _G.packer_plugins = {
     path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
+  ["telescope-termfinder.nvim"] = {
+    loaded = true,
+    path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/telescope-termfinder.nvim",
+    url = "https://github.com/tknightz/telescope-termfinder.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/telescope.nvim",

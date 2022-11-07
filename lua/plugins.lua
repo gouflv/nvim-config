@@ -38,6 +38,9 @@ packer.startup({ function(use)
   use {
     'nvim-telescope/telescope-file-browser.nvim'
   }
+  use {
+    'tknightz/telescope-termfinder.nvim'
+  }
 
   -- Langrages
   use {
