@@ -21,6 +21,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.wildmode = 'list:longest,full'
 
+-- Misc
 vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.clipboard:append({ 'unnamedplus' })
