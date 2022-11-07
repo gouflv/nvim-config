@@ -139,11 +139,6 @@ _G.packer_plugins = {
     path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
-  ["hop.nvim"] = {
-    loaded = true,
-    path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/hop.nvim",
-    url = "https://github.com/phaazon/hop.nvim"
-  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/gouflv/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",

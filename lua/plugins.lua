@@ -80,7 +80,6 @@ packer.startup({ function(use)
   use { 'windwp/nvim-autopairs' }
   use { 'windwp/nvim-ts-autotag' }
   use { 'kylechui/nvim-surround' }
-  use { 'phaazon/hop.nvim', branch = 'v2' }
   use { 'numToStr/Comment.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
   use { 'norcalli/nvim-colorizer.lua' }
