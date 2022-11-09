@@ -10,9 +10,6 @@ map('n', 'U', '<C-R>')
 -- Change text without putting into register
 map('n', 'c', '"_c')
 
--- Delete text without putting into register
-map('n', 'x', '"_x')
-
 -- Replace selection with text in reg
 map('v', 'p', '"_dP')
 
@@ -47,8 +44,6 @@ map('n', '<leader>l', '<C-w>l')
 -- Buffer
 map('n', '<C-n>', ':bnext<CR>')
 map('n', '<C-p>', ':bprevious<CR>')
-map('n', '<Tab>', ':bnext<CR>')
-map('n', '<S-Tab>', ':bprevious<CR>')
 map('n', '<leader>x', ':Bdelete<CR>')
 map('n', '<leader>X', ':bufdo :Bdelete<CR>')
 
