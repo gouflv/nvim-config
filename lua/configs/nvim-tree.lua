@@ -36,3 +36,4 @@ nvim_tree.setup({
 
 map('n', '<leader>ee', function() nvim_tree.toggle() end)
 map('n', '<leader>ef', function() nvim_tree.toggle({ find_file = true }) end)
+map('n', '<Esc>', '<C-w>l')
