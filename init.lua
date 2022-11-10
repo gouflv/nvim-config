@@ -22,7 +22,6 @@ require('configs.autopairs')
 require('configs.ts-autotag')
 require('configs.surround')
 require('configs.comment')
-require('configs.neogen')
 require('configs.colorizer')
 require('configs.im-select')
 -- Misc

@@ -83,7 +83,6 @@ packer.startup({ function(use)
   use { 'windwp/nvim-ts-autotag' }
   use { 'kylechui/nvim-surround' }
   use { 'numToStr/Comment.nvim' }
-  use { 'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter' }
   use { 'keaising/im-select.nvim' }
   use { 'norcalli/nvim-colorizer.lua' }
 
