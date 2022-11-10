@@ -52,8 +52,7 @@ map('n', ';', ':')
 map('n', ':', ';')
 
 -- Terminal
-map('t', '<C-x>', '<C-\\><C-n>')
-map('t', 'jk', '<C-\\><C-n>')
+map('t', '<S-Esc>', '<C-\\><C-n>')
 
 -- No hl
 map('n', '<Esc>', ':noh<CR>')
