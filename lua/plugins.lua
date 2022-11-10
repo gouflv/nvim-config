@@ -83,14 +83,17 @@ packer.startup({ function(use)
   use { 'windwp/nvim-ts-autotag' }
   use { 'kylechui/nvim-surround' }
   use { 'numToStr/Comment.nvim' }
-  use { 'lewis6991/gitsigns.nvim' }
+  use { 'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter' }
+  use { 'keaising/im-select.nvim' }
   use { 'norcalli/nvim-colorizer.lua' }
 
+  -- Mise
+  use { 'lewis6991/gitsigns.nvim' }
+  use { 'github/copilot.vim' }
   use({
     'iamcco/markdown-preview.nvim',
     run = function() vim.fn['mkdp#util#install']() end,
   })
-  use { 'github/copilot.vim' }
 
   -- Themes
   use 'morhetz/gruvbox'
