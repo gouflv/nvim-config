@@ -9,6 +9,7 @@ map('n', 'U', '<C-R>')
 
 -- Change text without putting into register
 map('n', 'c', '"_c')
+map('n', 'cc', '"_cc')
 
 -- Replace selection with text in reg
 map('v', 'p', '"_dP')
@@ -18,6 +19,8 @@ map('n', 'H', '^')
 map('n', 'L', 'g_')
 map('v', 'H', '^')
 map('v', 'L', 'g_')
+map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
 -- Continuous visual shifting
 map('v', '>', '>gv')
@@ -52,7 +55,7 @@ map('n', ';', ':')
 map('n', ':', ';')
 
 -- Terminal
-map('t', '<S-Esc>', '<C-\\><C-n>')
+map('t', '<S-Esc>', [[<C-\><C-n>]])
 
 -- No hl
 map('n', '<Esc>', ':noh<CR>')
