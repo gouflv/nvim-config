@@ -4,14 +4,6 @@ if not status then return end
 local map = require('utils').map
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
-local mapping_list = {
-  { key = { 'l', '<CR>', 'o' }, cb = tree_cb 'edit' },
-  { key = 'h', cb = tree_cb 'close_node' },
-  { key = 's', action = 'split' },
-  { key = 'v', action = 'vsplit' },
-  { key = '?', action = 'toggle_help' },
-}
-
 nvim_tree.setup({
   open_on_setup = false,
   filters = {
@@ -27,13 +19,20 @@ nvim_tree.setup({
     }
   },
   view = {
-    hide_root_folder = true,
+    width = 30,
+    -- hide_root_folder = true,
     mappings = {
-      list = mapping_list
+      list = {
+        { key = { 'l', '<CR>', 'o' }, cb = tree_cb 'edit' },
+        { key = 'h', cb = tree_cb 'close_node' },
+        { key = 's', action = 'split' },
+        { key = 'v', action = 'vsplit' },
+        { key = '?', action = 'toggle_help' },
+      }
     }
   }
 })
 
 map('n', '<leader>ee', function() nvim_tree.toggle() end)
-map('n', '<leader>ef', function() nvim_tree.toggle({ find_file = true }) end)
+map('n', '<leader>ef', function() nvim_tree.find_file() end)
 map('n', '<Esc>', '<C-w>l')
