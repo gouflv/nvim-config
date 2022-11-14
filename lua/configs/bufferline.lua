@@ -11,13 +11,14 @@ bufferline.setup({
     offsets = {
       {
         filetype = 'NvimTree',
-        text = function()
-          return getcwd(vim.fn.getcwd())
-        end,
-        text_align = 'left',
+        -- text = function()
+        --   return getcwd(vim.fn.getcwd())
+        -- end,
+        -- text_align = 'left',
+        text = '',
       }
     },
-    show_buffer_icons = false,
+    -- show_buffer_icons = false,
     show_buffer_close_icons = false,
     show_close_icon = false
   }
