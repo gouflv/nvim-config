@@ -1,12 +1,12 @@
 local status, nvim_lsp = pcall(require, 'lspconfig')
 if not status then return end
 
+local map = require('utils').map
 local fmt = function(cmd) return function(str) return cmd:format(str) end end
 local lsp = fmt('<cmd>lua vim.lsp.buf.%s<CR>')
 local diagnostic = fmt('<cmd>lua vim.diagnostic.%s<CR>')
 
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
   local opts = { noremap = true, silent = true }
 
@@ -20,8 +20,8 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', '[d', diagnostic 'goto_prev()')
   -- buf_set_keymap('n', ']d', diagnostic 'goto_next()')
 
-  buf_set_keymap('n', 'gd', lsp 'definition()', opts)
-  buf_set_keymap('n', '<leader>f', lsp 'format()', opts)
+  map('n', 'gd', lsp 'definition()', opts, 'LSP definition')
+  map('n', '<leader>f', lsp 'format()', opts, 'LSP format')
 end
 
 -- Set up completion using nvim_cmp with LSP source

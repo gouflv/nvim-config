@@ -7,8 +7,7 @@ toggleterm.setup({
   direction = 'float',
   open_mapping = [[<c-\>]],
   on_open = function(term)
-    local opt = { noremap = true, silent = true }
-    vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<cmd>close<CR>', opt)
+    map('n', 'q', '<cmd>close<CR>', { buffer = term.bufnr }, 'Close terminal')
   end
 })
 
@@ -17,7 +16,7 @@ local Terminal = require('toggleterm.terminal').Terminal
 
 local lazygit = Terminal:new({
   cmd = 'lazygit',
-  direction = 'float'
+  hidden = true,
 })
 
-map('n', '<leader>gi', function() lazygit:toggle() end)
+map('n', '<leader>gi', function() lazygit:toggle() end, 'Lazygit')

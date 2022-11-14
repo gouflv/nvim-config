@@ -26,11 +26,11 @@ telescope.setup({
   }
 })
 
-map('n', '<leader>ff', function() builtin.find_files() end)
-map('n', '<leader>fg', function() builtin.live_grep() end)
-map('n', '<Bslash>', function() builtin.buffers() end)
-map('n', '<leader>fo', function() builtin.oldfiles() end)
-map('n', '<leader>fr', function() builtin.resume() end)
+map('n', '<leader>ff', function() builtin.find_files() end, 'Find files')
+map('n', '<leader>fg', function() builtin.live_grep() end, 'Find in files')
+map('n', '<Bslash>', function() builtin.buffers() end, 'Find buffers')
+map('n', '<leader>fo', function() builtin.oldfiles() end, 'Find old files')
+map('n', '<leader>fr', function() builtin.resume() end, 'Resume telescope')
 
 map('n', '<leader>fb', function()
   telescope.extensions.file_browser.file_browser({
@@ -41,4 +41,4 @@ map('n', '<leader>fb', function()
     initial_mode = 'normal',
     previewer = false
   })
-end)
+end, 'Find files in browser')
