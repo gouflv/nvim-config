@@ -7,7 +7,6 @@ local lsp = fmt('<cmd>lua vim.lsp.buf.%s<CR>')
 local diagnostic = fmt('<cmd>lua vim.diagnostic.%s<CR>')
 
 local on_attach = function(client, bufnr)
-
   local opts = { noremap = true, silent = true }
 
   -- buf_set_keymap('n', 'K', lsp 'hover()')
@@ -22,6 +21,15 @@ local on_attach = function(client, bufnr)
 
   map('n', 'gd', lsp 'definition()', opts, 'LSP definition')
   map('n', '<leader>f', lsp 'format()', opts, 'LSP format')
+
+  if (client.name == 'tsserver') then
+    local opts = { noremap = true, silent = true, buffer = bufnr }
+    map('n', '<leader>to', function()
+      local typescript = require('typescript')
+      typescript.actions.addMissingImports()
+      typescript.actions.organizeImports()
+    end, opts, 'Typescript organize imports')
+  end
 end
 
 -- Set up completion using nvim_cmp with LSP source
