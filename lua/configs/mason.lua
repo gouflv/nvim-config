@@ -6,7 +6,7 @@ if not status_mason_lspconfig then return end
 
 mason.setup({
   ui = {
-    check_outdated_packages_on_open = false
+    -- check_outdated_packages_on_open = false
   }
 })
 

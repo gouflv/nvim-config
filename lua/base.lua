@@ -10,7 +10,6 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.foldenable = true
 vim.opt.foldlevelstart = 3
 vim.opt.foldlevel = 3
 
@@ -28,7 +27,6 @@ vim.opt.wildmode = 'list:longest,full'
 vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.clipboard:append({ 'unnamedplus' })
-vim.opt.mouse = 'a'
 
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ 'TextYankPost' }, {

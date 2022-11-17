@@ -12,6 +12,9 @@ lualine.setup({
       'diff',
       'diagonstics',
     },
+    lualine_c = {
+      { 'filename', file_status = true, path = 1 },
+    },
     lualine_x = {
       { 'filetype', icons_enabled = false, }
     },
