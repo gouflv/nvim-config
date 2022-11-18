@@ -16,9 +16,18 @@ lualine.setup({
       { 'filename', file_status = true, path = 1 },
     },
     lualine_x = {
+      -- encoding
+      -- fileformat
       { 'filetype', icons_enabled = false, }
     },
-    lualine_y = {}, -- hide progress
-    -- lualine_z = {},    -- hide location
+    lualine_y = {
+      -- progress
+    },
+    -- lualine_z = { 'location' },
+  },
+  inactive_sections = {
+    lualine_c = {
+      { 'filename', file_status = true, path = 1 },
+    },
   }
 })

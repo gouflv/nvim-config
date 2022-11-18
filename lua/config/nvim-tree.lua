@@ -5,7 +5,6 @@ local map = require('utils').map
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
 nvim_tree.setup({
-  open_on_setup = false,
   filters = {
     custom = { 'node_modules', '^.git$' },
   },
@@ -14,7 +13,6 @@ nvim_tree.setup({
       show = {
         folder = false,
         file = false,
-        -- git = false
       }
     }
   },
