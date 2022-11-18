@@ -8,13 +8,14 @@ vim.cmd('packadd packer.nvim')
 
 packer.startup({ function(use)
   use { 'lewis6991/impatient.nvim', config = [[require('impatient')]] }
+
   use { 'wbthomason/packer.nvim' }
 
   -- UIs
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = [[require('config.nvim-tree')]]
+    config = [[require('config.nvim-tree')]],
   }
   use {
     'akinsho/bufferline.nvim',
@@ -35,8 +36,6 @@ packer.startup({ function(use)
     'akinsho/toggleterm.nvim',
     tag = 'v2.*',
     config = [[require('config.toggleterm')]],
-    event = 'VimEnter',
-
   }
   use {
     'goolord/alpha-nvim',
@@ -45,6 +44,7 @@ packer.startup({ function(use)
   }
   use {
     'gelguy/wilder.nvim',
+    event = 'VimEnter',
   }
   use {
     'nvim-telescope/telescope.nvim',
@@ -74,7 +74,7 @@ packer.startup({ function(use)
     'neovim/nvim-lspconfig',
     requires = {
       'jose-elias-alvarez/typescript.nvim',
-       'b0o/schemastore.nvim'
+      'b0o/schemastore.nvim'
     },
     config = [[require('lsp.lspconfig')]],
   }
