@@ -34,7 +34,9 @@ treesitter.setup({
   }
 })
 
---treesitter_context.setup({})
+treesitter_context.setup({})
 
+vim.opt.foldlevelstart = 3
+vim.opt.foldlevel = 3
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'

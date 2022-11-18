@@ -5,7 +5,7 @@ if not status then return end
 
 -- Plugins
 telescope.load_extension('file_browser')
---telescope.load_extension('termfinder')
+telescope.load_extension('termfinder')
 
 local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')

@@ -51,7 +51,7 @@ packer.startup({ function(use)
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-file-browser.nvim',
-      --'tknightz/telescope-termfinder.nvim'
+      'tknightz/telescope-termfinder.nvim'
     },
     config = [[require('config.telescope')]],
   }

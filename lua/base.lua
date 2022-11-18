@@ -10,8 +10,6 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.foldlevelstart = 3
-vim.opt.foldlevel = 3
 
 -- UI
 vim.opt.scrolloff = 10
