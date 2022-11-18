@@ -18,8 +18,8 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     -- Select
     ['<CR>'] = cmp.mapping.confirm({
-      select = true,
-      behavior = cmp.ConfirmBehavior.Replace
+      select = false,
+      behavior = cmp.ConfirmBehavior.Insert
     }),
 
     -- Navigate
@@ -42,7 +42,12 @@ cmp.setup({
 
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+        local entry = cmp.get_selected_entry()
+        if not entry then
+          cmp.select_next_item()
+        else
+          cmp.confirm()
+        end
       else
         fallback()
       end

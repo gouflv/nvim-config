@@ -7,6 +7,7 @@ local saga_diagnostic = require('lspsaga.diagnostic')
 
 saga.init_lsp_saga({
   code_action_icon = '',
+  code_action_keys = { quit = '<Esc>', exec = '<CR>' },
   finder_request_timeout = 3000,
   rename_in_select = false,
 })
