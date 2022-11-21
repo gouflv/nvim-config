@@ -7,7 +7,10 @@ end
 vim.cmd('packadd packer.nvim')
 
 packer.startup({ function(use)
-  use { 'lewis6991/impatient.nvim', config = [[require('impatient')]] }
+  use {
+    'lewis6991/impatient.nvim',
+    config = [[require('impatient').enable_profile()]]
+  }
 
   use { 'wbthomason/packer.nvim' }
 
