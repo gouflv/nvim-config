@@ -53,7 +53,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lsp_setup = function(server_name, options)
   nvim_lsp[server_name].setup({
     on_attach = function(client, bufnr)
-      if (options.on_attach) then
+      if (options and options.on_attach) then
         options.on_attach(client, bufnr)
       else
         on_attach(client, bufnr)
