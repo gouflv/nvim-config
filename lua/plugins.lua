@@ -157,7 +157,7 @@ packer.startup({ function(use)
 
   -- Themes
   use 'morhetz/gruvbox'
-  use 'folke/tokyonight.nvim'
+  use { 'rose-pine/neovim', as = 'rose-pine' }
 end,
   config = {
     display = {
