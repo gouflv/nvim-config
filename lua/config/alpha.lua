@@ -1,12 +1,12 @@
 local alpha = require('alpha')
 
-local dashboard = require('alpha.themes.dashboard')
+local dbo = require('alpha.themes.dashboard')
 
-dashboard.section.buttons.val = {
-  dashboard.button('ee', 'Explorer', ':NvimTreeOpen <CR>'),
-  dashboard.button('n', 'New file', ':ene <BAR> startinsert <CR>'),
-  dashboard.button('ff', 'Find file', ':Telescope find_files <CR>'),
-  dashboard.button('fo', 'Recent', ':Telescope oldfiles <CR>'),
+dbo.section.buttons.val = {
+  dbo.button('ee', 'Explorer', ':NvimTreeOpen <CR>'),
+  dbo.button('n', 'New file', ':ene <BAR> startinsert <CR>'),
+  dbo.button('ff', 'Find file', ':Telescope find_files <CR>'),
+  dbo.button('fo', 'Recent', ':Telescope oldfiles <CR>'),
 }
 
-alpha.setup(dashboard.config)
+alpha.setup(dbo.config)

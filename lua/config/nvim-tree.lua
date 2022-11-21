@@ -1,13 +1,14 @@
 local nvim_tree = require('nvim-tree')
 
-local map = require('utils').map
-
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
+
+local map = require('utils').map
 
 nvim_tree.setup({
   filters = {
     custom = { 'node_modules', '^.git$' },
   },
+
   renderer = {
     icons = {
       show = {
@@ -16,13 +17,13 @@ nvim_tree.setup({
       }
     }
   },
+
   view = {
     width = 30,
     -- hide_root_folder = true,
     mappings = {
       list = {
-        { key = { 'l', '<CR>', 'o' }, cb = tree_cb 'edit' },
-        { key = 'h', cb = tree_cb 'close_node' },
+        { key = { '<CR>', 'o' }, cb = tree_cb 'edit' },
         { key = 's', action = 'split' },
         { key = 'v', action = 'vsplit' },
         { key = '?', action = 'toggle_help' },
