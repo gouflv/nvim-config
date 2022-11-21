@@ -1,5 +1,4 @@
-local status, nvim_lsp = pcall(require, 'lspconfig')
-if not status then return end
+local nvim_lsp = require('lspconfig')
 
 local map = require('utils').map
 local fmt = function(cmd) return function(str) return cmd:format(str) end end

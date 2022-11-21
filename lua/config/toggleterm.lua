@@ -1,5 +1,4 @@
-local status, toggleterm = pcall(require, 'toggleterm')
-if not status then return end
+local toggleterm = require('toggleterm')
 
 local map = require('utils').map
 

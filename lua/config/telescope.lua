@@ -1,7 +1,6 @@
 local map = require('utils').map
 
-local status, telescope = pcall(require, 'telescope')
-if not status then return end
+local telescope = require('telescope')
 
 -- Plugins
 telescope.load_extension('file_browser')
@@ -45,8 +44,6 @@ map('n', '<leader>fr', function() builtin.resume() end, 'Resume telescope')
 
 map('n', '<leader>fb', function()
   telescope.extensions.file_browser.file_browser({
-    path = '%:p:h',
-    cwd = '%:p:h',
     depth = 2,
     hidden = true,
     initial_mode = 'normal',

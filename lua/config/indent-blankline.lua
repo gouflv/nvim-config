@@ -1,5 +1,4 @@
-local status, blankline = pcall(require, 'indent_blankline')
-if not status then return end
+local blankline = require('indent_blankline')
 
 blankline.setup({
   use_treesitter = true,

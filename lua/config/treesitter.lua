@@ -1,8 +1,6 @@
-local treesitter_status, treesitter = pcall(require, 'nvim-treesitter.configs')
-if not treesitter_status then return end
+local treesitter = require('nvim-treesitter.configs')
 
-local treesitter_context_status, treesitter_context = pcall(require, 'treesitter-context')
-if not treesitter_context_status then return end
+local treesitter_context = require('treesitter-context')
 
 treesitter.setup({
   ensure_installed = {

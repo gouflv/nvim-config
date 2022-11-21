@@ -1,7 +1,7 @@
-local status, nvim_tree = pcall(require, 'nvim-tree')
-if not status then return end
+local nvim_tree = require('nvim-tree')
 
 local map = require('utils').map
+
 local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
 nvim_tree.setup({

@@ -1,8 +1,6 @@
-local status_mason, mason = pcall(require, 'mason')
-if not status_mason then return end
+local mason = require('mason')
 
-local status_mason_lspconfig, mason_lspconfig = pcall(require, 'mason-lspconfig')
-if not status_mason_lspconfig then return end
+local mason_lspconfig = require('mason-lspconfig')
 
 mason.setup({
   ui = {
