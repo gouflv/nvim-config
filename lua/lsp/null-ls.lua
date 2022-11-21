@@ -55,7 +55,7 @@ null_ls.setup({
     }),
 
     -- TS LSP
-    -- require('typescript.extensions.null-ls.code-actions')
+    require('typescript.extensions.null-ls.code-actions')
   },
   on_attach = function(client, bufnr)
     if client.supports_method('textDocument/formatting') then
@@ -84,3 +84,9 @@ null_ls.setup({
   end
 })
 
+vim.api.nvim_create_user_command('DisableLspFormatting',
+  function()
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = 0 })
+  end,
+  { nargs = 0 }
+)

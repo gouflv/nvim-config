@@ -19,5 +19,8 @@ map('n', 'ga', '<cmd>Lspsaga code_action<CR>')
 map('n', 'rn', '<cmd>Lspsaga rename<CR>')
 
 local goto_opts = { severity = vim.diagnostic.severity.ERROR }
-map('n', '[d', function() saga_diagnostic.goto_prev(goto_opts) end, 'Goto previous diagnostic')
-map('n', ']d', function() saga_diagnostic.goto_next(goto_opts) end, 'Goto next diagnostic')
+map('n', '[e', function() saga_diagnostic.goto_prev(goto_opts) end, 'Goto previous error')
+map('n', ']e', function() saga_diagnostic.goto_next(goto_opts) end, 'Goto next error')
+
+map('n', '[d', function() saga_diagnostic.goto_prev() end, 'Goto previous diagnostic')
+map('n', ']d', function() saga_diagnostic.goto_next() end, 'Goto next diagnostic')

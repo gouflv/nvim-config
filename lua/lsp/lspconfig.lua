@@ -4,7 +4,18 @@ if not status then return end
 local map = require('utils').map
 local fmt = function(cmd) return function(str) return cmd:format(str) end end
 local lsp = fmt('<cmd>lua vim.lsp.buf.%s<CR>')
-local diagnostic = fmt('<cmd>lua vim.diagnostic.%s<CR>')
+
+local augroup_format = vim.api.nvim_create_augroup('Format', { clear = true })
+local enable_format_on_save = function(_, bufnr)
+  vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    group = augroup_format,
+    buffer = bufnr,
+    callback = function()
+      vim.lsp.buf.format({ bufnr = bufnr })
+    end,
+  })
+end
 
 local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true }
@@ -36,9 +47,18 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Server setup helper
+-- options: table
+--  on_attach: function
+--  settings: table
 local lsp_setup = function(server_name, options)
   nvim_lsp[server_name].setup({
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      if (options.on_attach) then
+        options.on_attach(client, bufnr)
+      else
+        on_attach(client, bufnr)
+      end
+    end,
     capabilities = capabilities,
     settings = options and options.settings or nil
   })
@@ -53,6 +73,10 @@ lsp_setup('yamlls')
 
 -- Lua
 lsp_setup('sumneko_lua', {
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    enable_format_on_save(client, bufnr)
+  end,
   settings = {
     Lua = {
       diagnostics = {
