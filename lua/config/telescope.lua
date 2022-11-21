@@ -18,7 +18,9 @@ telescope.setup({
     },
     mappings = {
       n = {
-        ['q'] = actions.close
+        ['q'] = actions.close,
+        ['K'] = actions.results_scrolling_up,
+        ['J'] = actions.results_scrolling_down,
       }
     }
   },
@@ -44,6 +46,7 @@ map('n', '<leader>fr', function() builtin.resume() end, 'Resume telescope')
 
 map('n', '<leader>fb', function()
   telescope.extensions.file_browser.file_browser({
+    path = '%:p:h',
     depth = 2,
     hidden = true,
     initial_mode = 'normal',
