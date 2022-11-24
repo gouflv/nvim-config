@@ -59,4 +59,4 @@ map('n', ':', ';')
 map('t', '<S-Esc>', [[<C-\><C-n>]])
 
 -- Reload
-map('n', '<leader>sv', ':source $MYVIMRC<CR>')
+map('n', '<leader>`', ':source $MYVIMRC<CR>')
