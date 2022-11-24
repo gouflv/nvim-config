@@ -47,6 +47,7 @@ packer.startup({ function(use)
   }
   use {
     'gelguy/wilder.nvim',
+    config = [[require('config.wilder')]],
     event = 'VimEnter',
   }
   use {

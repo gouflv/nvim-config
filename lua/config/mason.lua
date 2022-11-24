@@ -11,7 +11,6 @@ mason.setup({
 mason_lspconfig.setup({
   ensure_installed = {
     -- LSP
-    'bashls',
     'cssls',
     'dockerls',
     'emmet_ls',
@@ -23,10 +22,10 @@ mason_lspconfig.setup({
     'tsserver',
     'volar',
     'yamlls',
-    -- Lint
     'eslint',
-    -- Formatting
+    -- Manual install for now
     -- 'prettier',
+    -- 'cspell',
   },
   automatic_installation = true
 })
