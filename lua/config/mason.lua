@@ -12,16 +12,13 @@ mason_lspconfig.setup({
   ensure_installed = {
     -- LSP
     'cssls',
-    'dockerls',
     'emmet_ls',
     'html',
     'jsonls',
     'sumneko_lua',
-    'stylelint_lsp',
     'tailwindcss',
     'tsserver',
     'volar',
-    'yamlls',
     'eslint',
     -- Manual install for now
     -- 'prettier',
