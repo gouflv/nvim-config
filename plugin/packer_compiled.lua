@@ -351,10 +351,10 @@ time([[Config for impatient.nvim]], false)
 time([[Config for nvim-lspconfig]], true)
 require('lsp.lspconfig')
 time([[Config for nvim-lspconfig]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-require('config.bufferline')
-time([[Config for bufferline.nvim]], false)
+-- Config for: mason.nvim
+time([[Config for mason.nvim]], true)
+require('config.mason')
+time([[Config for mason.nvim]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 require('config.toggleterm')
@@ -371,10 +371,10 @@ time([[Config for telescope.nvim]], false)
 time([[Config for nvim-tree.lua]], true)
 require('config.nvim-tree')
 time([[Config for nvim-tree.lua]], false)
--- Config for: mason.nvim
-time([[Config for mason.nvim]], true)
-require('config.mason')
-time([[Config for mason.nvim]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+require('config.bufferline')
+time([[Config for bufferline.nvim]], false)
 -- Config for: lspsaga.nvim
 time([[Config for lspsaga.nvim]], true)
 require('lsp.lspsaga')
@@ -391,7 +391,7 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-ts-autotag', 'copilot.vim', 'gitsigns.nvim', 'indent-blankline.nvim', 'lualine.nvim', 'wilder.nvim', 'Comment.nvim', 'nvim-autopairs', 'im-select.nvim', 'nvim-colorizer.lua', 'vim-repeat', 'nvim-surround'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-ts-autotag', 'copilot.vim', 'gitsigns.nvim', 'indent-blankline.nvim', 'lualine.nvim', 'im-select.nvim', 'vim-repeat', 'Comment.nvim', 'nvim-autopairs', 'wilder.nvim', 'nvim-colorizer.lua', 'nvim-surround'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 

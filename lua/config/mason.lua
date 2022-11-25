@@ -10,7 +10,7 @@ mason.setup({
 
 mason_lspconfig.setup({
   ensure_installed = {
-    -- LSP
+    'bashls',
     'cssls',
     'emmet_ls',
     'html',
@@ -23,6 +23,7 @@ mason_lspconfig.setup({
     -- Manual install for now
     -- 'prettier',
     -- 'cspell',
+    -- 'eslint_d',
   },
   automatic_installation = true
 })
