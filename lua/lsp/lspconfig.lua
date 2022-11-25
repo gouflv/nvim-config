@@ -4,20 +4,8 @@ local map = require('utils').map
 local fmt = function(cmd) return function(str) return cmd:format(str) end end
 local lsp = fmt('<cmd>lua vim.lsp.buf.%s<CR>')
 
-local augroup_format = vim.api.nvim_create_augroup('Format', { clear = true })
-local enable_format_on_save = function(_, bufnr)
-  vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
-  vim.api.nvim_create_autocmd('BufWritePre', {
-    group = augroup_format,
-    buffer = bufnr,
-    callback = function()
-      vim.lsp.buf.format({ bufnr = bufnr })
-    end,
-  })
-end
-
 local on_attach = function(client, bufnr)
-  local opts = { noremap = true, silent = true }
+  local opts = { buffer = bufnr }
 
   -- buf_set_keymap('n', 'K', lsp 'hover()')
   -- buf_set_keymap('n', 'gD', lsp 'declaration()')
@@ -29,11 +17,11 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', '[d', diagnostic 'goto_prev()')
   -- buf_set_keymap('n', ']d', diagnostic 'goto_next()')
 
-  map('n', 'gd', lsp 'definition()', opts, 'LSP definition')
+  map('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts, 'LSP definition')
+
   map('n', '<leader>f', lsp 'format()', opts, 'LSP format')
 
   if (client.name == 'tsserver') then
-    local opts = { noremap = true, silent = true, buffer = bufnr }
     map('n', '<leader>to', function()
       local typescript = require('typescript')
       typescript.actions.addMissingImports()
@@ -60,6 +48,18 @@ local lsp_setup = function(server_name, options)
     end,
     capabilities = capabilities,
     settings = options and options.settings or nil
+  })
+end
+
+local augroup_format = vim.api.nvim_create_augroup('Format', { clear = true })
+local enable_format_on_save = function(_, bufnr)
+  vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    group = augroup_format,
+    buffer = bufnr,
+    callback = function()
+      vim.lsp.buf.format({ bufnr = bufnr })
+    end,
   })
 end
 

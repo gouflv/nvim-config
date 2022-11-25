@@ -25,7 +25,12 @@ telescope.setup({
     }
   },
   pickers = {
-    find_files = { hidden = true }
+    find_files = {
+      hidden = true
+    },
+    lsp_definitions = {
+      initial_mode = 'normal',
+    },
   },
   extensions = {
     file_browser = {
