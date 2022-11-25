@@ -14,9 +14,6 @@ map('n', 'cc', '"_cc')
 -- Replace selection with text in reg
 map('v', 'p', '"_dP')
 
--- No hl
-map('n', '<Esc>', ':nohl<CR>')
-
 -- Movement
 map('n', 'H', '^')
 map('n', 'L', 'g_')
