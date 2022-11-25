@@ -34,6 +34,8 @@ map('v', 'y', 'myy`y')
 map('n', '<leader>o', 'o<Esc>')
 map('n', '<leader>O', 'O<Esc>')
 
+map('n', '<Tab>', '%', { remap = true })
+
 -- Save file
 map('n', '<leader>s', ':w<CR>')
 

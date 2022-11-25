@@ -1,4 +1,5 @@
 local nvim_lsp = require('lspconfig')
+local enable_format_on_save = require('autocmds').enable_format_on_save
 
 local map = require('utils').map
 local fmt = function(cmd) return function(str) return cmd:format(str) end end
@@ -18,16 +19,7 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', ']d', diagnostic 'goto_next()')
 
   map('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts, 'LSP definition')
-
   map('n', '<leader>f', lsp 'format()', opts, 'LSP format')
-
-  if (client.name == 'tsserver') then
-    map('n', '<leader>to', function()
-      local typescript = require('typescript')
-      typescript.actions.addMissingImports()
-      typescript.actions.organizeImports()
-    end, opts, 'Typescript organize imports')
-  end
 end
 
 -- Set up completion using nvim_cmp with LSP source
@@ -48,18 +40,6 @@ local lsp_setup = function(server_name, options)
     end,
     capabilities = capabilities,
     settings = options and options.settings or nil
-  })
-end
-
-local augroup_format = vim.api.nvim_create_augroup('Format', { clear = true })
-local enable_format_on_save = function(_, bufnr)
-  vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
-  vim.api.nvim_create_autocmd('BufWritePre', {
-    group = augroup_format,
-    buffer = bufnr,
-    callback = function()
-      vim.lsp.buf.format({ bufnr = bufnr })
-    end,
   })
 end
 
@@ -104,7 +84,15 @@ local ts_status, ts = pcall(require, 'typescript')
 if ts_status then
   ts.setup({
     server = {
-      on_attach = on_attach,
+      on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+
+        map('n', '<leader>to', function()
+          local actions = require('typescript').actions
+          actions.addMissingImports()
+          actions.organizeImports()
+        end, { buffer = bufnr }, 'Typescript organize imports')
+      end,
       capabilities = capabilities
     }
   })

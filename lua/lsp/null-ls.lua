@@ -1,10 +1,9 @@
 local null_ls = require('null-ls')
+local enable_lsp_format_on_save = require('autocmds').enable_lsp_format_on_save
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
-
-local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
 local has_file_condition = function(files)
   return function(utils)
@@ -37,13 +36,13 @@ null_ls.setup({
       filter = function(d) return d.code ~= 'prettier/prettier' end,
       condition = eslint_condition
     }),
-    code_actions.eslint_d.with({
-      condition = eslint_condition
-    }),
     formatting.eslint_d.with({
       condition = function(utils)
         return eslint_condition(utils) and not prettier_condition(utils)
       end
+    }),
+    code_actions.eslint_d.with({
+      condition = eslint_condition
     }),
 
     -- CSpell
@@ -58,18 +57,7 @@ null_ls.setup({
   },
   on_attach = function(client, bufnr)
     if client.supports_method('textDocument/formatting') then
-      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({
-            filter = function(client)
-              return client.name == 'null-ls'
-            end
-          })
-        end
-      })
+      enable_lsp_format_on_save(client, bufnr)
     end
 
     vim.diagnostic.config({
@@ -82,10 +70,3 @@ null_ls.setup({
     })
   end
 })
-
-vim.api.nvim_create_user_command('DisableLspFormatting',
-  function()
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = 0 })
-  end,
-  { nargs = 0 }
-)

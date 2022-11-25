@@ -1,6 +1,6 @@
-local U = {}
+local M = {}
 
-function U.map(mode, lhs, rhs, opts, desc)
+function M.map(mode, lhs, rhs, opts, desc)
   local options = { noremap = true, silent = true }
 
   if type(opts) == 'string' then
@@ -11,7 +11,7 @@ function U.map(mode, lhs, rhs, opts, desc)
   if opts then
     options = vim.tbl_extend('force', options, opts)
   end
-  
+
   if desc then
     options.desc = desc
   end
@@ -19,8 +19,8 @@ function U.map(mode, lhs, rhs, opts, desc)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
-function U.merge(a, b)
+function M.merge(a, b)
   return vim.tbl_deep_extend('force', {}, a, b)
 end
 
-return U
+return M

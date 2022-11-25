@@ -18,9 +18,7 @@ map('n', 'gr', '<cmd>Lspsaga lsp_finder<CR>')
 map('n', 'gpd', '<cmd>Lspsaga peek_definition<CR>')
 map('n', 'ga', '<cmd>Lspsaga code_action<CR>')
 map('n', 'rn', '<cmd>Lspsaga rename<CR>')
-
 map('n', '[e', function() saga_diagnostic.goto_prev(goto_opts) end, 'Goto previous error')
 map('n', ']e', function() saga_diagnostic.goto_next(goto_opts) end, 'Goto next error')
-
 map('n', '[d', function() saga_diagnostic.goto_prev() end, 'Goto previous diagnostic')
 map('n', ']d', function() saga_diagnostic.goto_next() end, 'Goto next diagnostic')
