@@ -13,7 +13,7 @@ cmp.setup({
   }),
   mapping = cmp.mapping.preset.insert({
     -- Select
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm(),
 
     -- Navigate
     ['<Up>'] = cmp.mapping.select_prev_item(),

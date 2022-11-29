@@ -31,7 +31,11 @@ map('v', 'y', 'myy`y')
 map('n', '<leader>o', 'o<Esc>')
 map('n', '<leader>O', 'O<Esc>')
 
+-- Jump to match items
 map('n', '<Tab>', '%', { remap = true })
+
+-- Clear search
+map('n', '<leader><space>', ':nohls<CR>')
 
 -- Save file
 map('n', '<leader>s', ':w<CR>')
