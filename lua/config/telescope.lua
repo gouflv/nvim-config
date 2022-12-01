@@ -22,6 +22,13 @@ telescope.setup({
         ['K'] = actions.results_scrolling_up,
         ['J'] = actions.results_scrolling_down,
       }
+    },
+    layout_strategy = 'flex',
+    layout_config = {
+      flex = {
+        flip_columns = 140
+      },
+      vertical = { preview_height = 0.4 },
     }
   },
   pickers = {
@@ -29,6 +36,9 @@ telescope.setup({
       hidden = true
     },
     lsp_definitions = {
+      initial_mode = 'normal',
+    },
+    marks = {
       initial_mode = 'normal',
     },
   },
@@ -43,6 +53,7 @@ map('n', '<leader>ff', function() builtin.find_files() end, 'Find files')
 map('n', '<leader>fg', function() builtin.live_grep() end, 'Find in files')
 map('n', '<Bslash>', function() builtin.buffers() end, 'Find buffers')
 map('n', '<leader>fo', function() builtin.oldfiles() end, 'Find old files')
+map('n', '<leader>fm', function() builtin.marks() end, 'Find marks')
 map('n', '<leader>fr', function() builtin.resume() end, 'Resume telescope')
 map('n', '<leader>fb', function()
   telescope.extensions.file_browser.file_browser({
