@@ -23,4 +23,8 @@ function M.merge(a, b)
   return vim.tbl_deep_extend('force', {}, a, b)
 end
 
+function M.clean_undo_files()
+  vim.fn.system('fd -p ~/.local/state/nvim/undo --changed-before 7d -X rm -f')
+end
+
 return M
