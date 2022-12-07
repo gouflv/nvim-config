@@ -27,6 +27,15 @@ treesitter.setup({
     enable = true,
   },
 
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = '<CR>',
+      node_incremental = '<CR>',
+      node_decremental = '<S-CR>',
+    },
+  },
+
   autotag = {
     enable = true
   }
@@ -34,7 +43,7 @@ treesitter.setup({
 
 treesitter_context.setup({})
 
-vim.opt.foldlevelstart = 3
-vim.opt.foldlevel = 3
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+-- vim.opt.foldlevelstart = 3
+-- vim.opt.foldlevel = 3
+-- vim.opt.foldmethod = 'expr'
+-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
