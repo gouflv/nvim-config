@@ -19,8 +19,10 @@ telescope.setup({
     mappings = {
       n = {
         ['q'] = actions.close,
-        ['K'] = actions.results_scrolling_up,
-        ['J'] = actions.results_scrolling_down,
+        ['H'] = actions.results_scrolling_up,
+        ['L'] = actions.results_scrolling_down,
+        ['K'] = actions.preview_scrolling_up,
+        ['J'] = actions.preview_scrolling_down,
       }
     },
     layout_strategy = 'flex',
