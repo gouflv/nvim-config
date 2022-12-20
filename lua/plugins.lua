@@ -68,7 +68,10 @@ packer.startup({ function(use)
   }
   use {
     'williamboman/mason.nvim',
-    requires = 'williamboman/mason-lspconfig.nvim',
+    requires = {
+      'williamboman/mason-lspconfig.nvim',
+      'jayp0521/mason-null-ls.nvim'
+    },
     config = [[require('config.mason')]],
   }
   use {
