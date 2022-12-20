@@ -65,7 +65,6 @@ map('n', '<leader>fr', function() builtin.resume() end, 'Resume telescope')
 map('n', '<leader>fb', function()
   telescope.extensions.file_browser.file_browser({
     path = '%:p:h',
-    depth = 2,
     hidden = true,
     initial_mode = 'normal',
     previewer = false
