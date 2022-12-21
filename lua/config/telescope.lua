@@ -48,6 +48,9 @@ telescope.setup({
     marks = {
       initial_mode = 'normal',
     },
+    git_status = {
+      initial_mode = 'normal',
+    },
   },
   extensions = {
     file_browser = {
@@ -70,3 +73,4 @@ map('n', '<leader>fb', function()
     previewer = false
   })
 end, 'Find files in browser')
+map('n', '<leader>fc', function() builtin.git_status() end, 'Git status')
