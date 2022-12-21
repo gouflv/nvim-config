@@ -21,4 +21,3 @@ map('n', '[c', function()
 end, 'Previous hunk')
 
 map('n', '<leader>gir', function() gitsigns.reset_hunk() end, 'Reset hunk')
-map('n', '<leader>gid', function() gitsigns.diffthis() end, 'Diff')

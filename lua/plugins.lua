@@ -154,6 +154,12 @@ packer.startup({ function(use)
     event = 'VimEnter',
   }
   use {
+    'sindrets/diffview.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = [[require('config.diffview')]],
+    event = 'VimEnter',
+  }
+  use {
     'github/copilot.vim',
     config = [[require('config.copilot')]],
     event = 'VimEnter',
