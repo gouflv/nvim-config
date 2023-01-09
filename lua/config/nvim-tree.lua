@@ -32,6 +32,6 @@ nvim_tree.setup({
   }
 })
 
-map('n', '<leader>ee', function() nvim_tree.toggle() end, 'Toggle Explorer')
-map('n', '<leader>ef', function() nvim_tree.find_file(true) end, 'Find file in Explorer')
+map('n', '<leader>ee', ':NvimTreeToggle<CR>', 'Toggle Explorer')
+map('n', '<leader>ef', ':NvimTreeFindFile<CR>', 'Find file in Explorer')
 map('n', '<Esc>', '<C-w>l', 'Unfocus Explorer')
