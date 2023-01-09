@@ -41,8 +41,4 @@ vim.api.nvim_create_user_command('CopyPath', function()
 end, {})
 
 local clean_undo_files = require('utils').clean_undo_files
-vim.api.nvim_create_autocmd('VimLeavePre', {
-  callback = function()
-    clean_undo_files()
-  end,
-})
+vim.api.nvim_create_user_command('CleanUndoFiles', clean_undo_files, {})
