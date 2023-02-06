@@ -60,6 +60,3 @@ map('n', ':', ';')
 
 -- Terminal
 map('t', '<S-Esc>', [[<C-\><C-n>]])
-
--- Reload
-map('n', '<leader>`', ':source $MYVIMRC<CR>')
