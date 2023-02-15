@@ -52,6 +52,7 @@ return {
     },
   },
 
+  -- indent
   {
     'lukas-reineke/indent-blankline.nvim',
     event = { 'BufReadPost', 'BufNewFile' },
@@ -59,6 +60,52 @@ return {
       show_current_context = true,
       show_current_context_start = true,
     }
+  },
+
+  -- surround
+  {
+    'kylechui/nvim-surround',
+    event = { 'BufReadPost', 'BufNewFile' },
+  },
+
+  -- comnent
+  {
+    'numToStr/Comment.nvim',
+    event = { 'BufReadPost', 'BufNewFile' },
+  },
+
+  -- input method
+  {
+    'keaising/im-select.nvim',
+    event = { 'BufReadPost', 'BufNewFile' },
+    opts = {
+      default_im_select = 'com.apple.keylayout.ABC',
+      disable_auto_restore = 1
+    }
+  },
+
+  -- colorizer
+  {
+    'norcalli/nvim-colorizer.lua',
+    event = { 'BufReadPost', 'BufNewFile' },
+  },
+
+  -- copilot
+  {
+    'github/copilot.vim',
+    event = 'VeryLazy',
+    config = function()
+      local g = vim.g
+      local map = require('utils').map
+
+      g.copilot_no_tab_map = true
+
+      map('i', '<C-f>',
+        'copilot#Accept("<CR>")',
+        { expr = true },
+        'Accept suggestion'
+      )
+    end,
   },
 
   -- animate

@@ -9,9 +9,6 @@ return {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
     cmd = 'Neotree',
-    deactivate = function()
-      vim.cmd([[Neotree close]])
-    end,
     init = function()
       vim.g.neo_tree_remove_legacy_commands = 1
       if vim.fn.argc() == 1 then
@@ -20,6 +17,9 @@ return {
           require('neo-tree')
         end
       end
+    end,
+    deactivate = function()
+      vim.cmd([[Neotree close]])
     end,
     opts = {
       window = {
