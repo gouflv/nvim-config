@@ -125,5 +125,6 @@ return {
     config = function(_, dashboard)
       require('alpha').setup(dashboard.opts)
     end
-  }
+  },
+
 }

@@ -57,12 +57,12 @@ return {
       },
     },
     keys = {
-      { '<leader>ff', function() builtin().find_files() end },
-      { '<leader>fg', function() builtin().live_grep() end },
-      { '<Bslash>',   function() builtin().buffers() end },
-      { '<leader>fo', function() builtin().oldfiles() end },
-      { '<leader>fm', function() builtin().marks() end },
-      { '<leader>fc', function() builtin().git_status() end },
+      { '<leader>ff', function() builtin().find_files() end, desc = 'Find files' },
+      { '<leader>fg', function() builtin().live_grep() end,  desc = 'Live grep' },
+      { '<Bslash>',   function() builtin().buffers() end,    desc = 'Buffers' },
+      { '<leader>fo', function() builtin().oldfiles() end,   desc = 'Old Files' },
+      { '<leader>fm', function() builtin().marks() end,      desc = 'Marks' },
+      { '<leader>fc', function() builtin().git_status() end, desc = 'Git Status' },
     }
   }
 }
