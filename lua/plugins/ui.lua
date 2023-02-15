@@ -2,7 +2,7 @@ return {
 
   { 'kyazdani42/nvim-web-devicons', lazy = true },
 
-  { 'moll/vim-bbye', lazy = true, cmd = 'Bdelete' },
+  { 'moll/vim-bbye',                lazy = true, cmd = 'Bdelete' },
 
   -- file explorer
   {
@@ -106,9 +106,6 @@ return {
     }
   },
 
-  -- TODO
-  -- noe-tree
-
   -- dashboard
   {
     'goolord/alpha-nvim',
@@ -116,7 +113,7 @@ return {
     opts = function()
       local dashboard = require('alpha.themes.dashboard')
       dashboard.section.buttons.val = {
-        dashboard.button('fe', 'Explorer', ':NvimTreeOpen <CR>'),
+        dashboard.button('fe', 'Explorer', ':Neotree toggle <CR>'),
         dashboard.button('ff', 'Find file', ':Telescope find_files <CR>'),
         dashboard.button('fo', 'Recent', ':Telescope oldfiles <CR>'),
         dashboard.button('n', 'New file', ':ene <BAR> startinsert <CR>'),
