@@ -93,19 +93,19 @@ return {
   -- copilot
   {
     'github/copilot.vim',
-    event = 'VeryLazy',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = function()
-      local g = vim.g
-      local map = require('utils').map
-
-      g.copilot_no_tab_map = true
-
-      map('i', '<C-f>',
-        'copilot#Accept("<CR>")',
-        { expr = true },
-        'Accept suggestion'
-      )
+      vim.g.copilot_no_tab_map = true
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function()
+          local buffer = vim.api.nvim_get_current_buf()
+          pcall(vim.keymap.del, 'i', '<C-f>', { buffer = buffer })
+        end,
+      })
     end,
+    keys = {
+      { '<C-f>', 'copilot#Accept("<CR>")', { expr = true }, desc = 'Accept suggestion' },
+    }
   },
 
   -- animate

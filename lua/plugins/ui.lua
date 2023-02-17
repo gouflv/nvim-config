@@ -33,7 +33,7 @@ return {
     },
     keys = {
       {
-        '<leader>e',
+        '<leader>fe',
         function()
           require('neo-tree.command').execute({
             toggle = true
@@ -41,7 +41,7 @@ return {
         end
       },
       {
-        '<leader>E',
+        '<leader>fE',
         function()
           require('neo-tree.command').execute({
             toggle = true,
