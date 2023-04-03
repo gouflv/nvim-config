@@ -127,4 +127,17 @@ return {
     end
   },
 
+  -- animate
+  {
+    'echasnovski/mini.animate',
+    event = 'VeryLazy',
+    opts = {
+      scroll = {
+        duration = 150,
+      }
+    },
+    config = function(_, opts)
+      require('mini.animate').setup(opts)
+    end,
+  }
 }

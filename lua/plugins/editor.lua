@@ -96,25 +96,10 @@ return {
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()
       vim.g.copilot_no_tab_map = true
-      vim.api.nvim_create_autocmd('FileType', {
-        callback = function()
-          local buffer = vim.api.nvim_get_current_buf()
-          pcall(vim.keymap.del, 'i', '<C-f>', { buffer = buffer })
-        end,
-      })
     end,
     keys = {
-      { '<C-f>', 'copilot#Accept("<CR>")', { expr = true }, desc = 'Accept suggestion' },
+      { '<C-f>', 'copilot#Accept("<CR>")', { mode = 'i', expr = true }, desc = 'Accept suggestion' },
     }
   },
 
-  -- animate
-  {
-    'echasnovski/mini.animate',
-    event = 'VeryLazy',
-    opts = {},
-    config = function(_, opts)
-      require('mini.animate').setup(opts)
-    end,
-  }
 }
