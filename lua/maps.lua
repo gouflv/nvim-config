@@ -48,15 +48,6 @@ map('n', '<leader>j', '<C-w>j')
 map('n', '<leader>k', '<C-w>k')
 map('n', '<leader>l', '<C-w>l')
 
--- Buffer
-map('n', '<C-n>', ':bnext<CR>')
-map('n', '<C-p>', ':bprevious<CR>')
-map('n', '<leader>x', ':Bdelete<CR>')
-map('n', '<leader>X', ':bufdo :Bdelete<CR>')
-
 -- Run Command easier
-map('n', ';', ':')
-map('n', ':', ';')
-
--- Terminal
-map('t', '<S-Esc>', [[<C-\><C-n>]])
+-- map('n', ';', ':')
+-- map('n', ':', ';')
