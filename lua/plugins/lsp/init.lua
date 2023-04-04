@@ -28,22 +28,22 @@ return {
       local mason_lspconfig = require('mason-lspconfig')
       mason_lspconfig.setup({
         ensure_installed = {
-          'cssls',
-          'emmet_ls',
-          'html',
-          'jsonls',
-          'lua_ls',
-          'tsserver',
-          'volar',
+          -- 'cssls',
+          -- 'emmet_ls',
+          -- 'html',
+          -- 'jsonls',
+          -- 'lua_ls',
+          -- 'tsserver',
+          -- 'volar',
         },
       })
 
       local mason_null_ls = require('mason-null-ls')
       mason_null_ls.setup({
         ensure_installed = {
-          'eslint_d',
-          'prettier',
-          'cspell',
+          -- 'eslint_d',
+          -- 'prettier',
+          -- 'cspell',
         },
       })
     end
